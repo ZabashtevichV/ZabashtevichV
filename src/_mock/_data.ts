@@ -63,18 +63,7 @@ export const _posts = [...Array(3)].map((_, index) => ({
 
 // ----------------------------------------------------------------------
 
-const COLORS = [
-  '#00AB55',
-  '#000000',
-  '#FFFFFF',
-  '#FFC0CB',
-  '#FF4842',
-  '#1890FF',
-  '#94D82D',
-  '#FFC107',
-];
-
-export const _products = [...Array(24)].map((_, index) => {
+export const _products = [...Array(4)].map((_, index) => {
   const setIndex = index + 1;
 
   return {
@@ -83,38 +72,8 @@ export const _products = [...Array(24)].map((_, index) => {
     name: _productNames(index),
     priceSale: setIndex % 3 ? null : _price(index),
     coverUrl: `/assets/images/product/product-${setIndex}.webp`,
-    colors:
-      (setIndex === 1 && COLORS.slice(0, 2)) ||
-      (setIndex === 2 && COLORS.slice(1, 3)) ||
-      (setIndex === 3 && COLORS.slice(2, 4)) ||
-      (setIndex === 4 && COLORS.slice(3, 6)) ||
-      (setIndex === 23 && COLORS.slice(4, 6)) ||
-      (setIndex === 24 && COLORS.slice(5, 6)) ||
-      COLORS,
-    status:
-      ([1, 3, 5].includes(setIndex) && 'sale') || ([4, 8, 12].includes(setIndex) && 'new') || '',
   };
 });
-
-// ----------------------------------------------------------------------
-
-export const _langs = [
-  {
-    value: 'en',
-    label: 'English',
-    icon: '/assets/icons/flags/ic-flag-en.svg',
-  },
-  {
-    value: 'de',
-    label: 'German',
-    icon: '/assets/icons/flags/ic-flag-de.svg',
-  },
-  {
-    value: 'fr',
-    label: 'French',
-    icon: '/assets/icons/flags/ic-flag-fr.svg',
-  },
-];
 
 // ----------------------------------------------------------------------
 

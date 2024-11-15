@@ -20,23 +20,23 @@ export const navData = [
   },
   {
     title: 'Остатки',
-    path: '/warehouse',
+    path: '/remains',
     icon: icon('ic-warehouse'),
   },
   {
-    title: 'Отгрузки',
-    path: '/products',
+    title: 'Расходники',
+    path: '/costs',
     icon: icon('ic-cart'),
+  },
+  {
+    title: 'Отгрузки',
+    path: '/loads',
+    icon: icon('ic-blog'),
     info: (
       <Label color="error" variant="inverted">
         +3
       </Label>
     ),
-  },
-  {
-    title: 'Блоги',
-    path: '/blog',
-    icon: icon('ic-blog'),
   },
   {
     title: 'Авторизация',
