@@ -1,7 +1,6 @@
-import Grid from '@mui/material/Unstable_Grid2';
-
 import { _posts, _timeline } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
+import { Grid2 } from '@mui/material';
 
 import { AnalyticsNews } from '../analytics-news';
 import { AnalyticsCurrentVisits } from '../analytics-current-visits';
@@ -14,8 +13,8 @@ import { AnalyticsWidgetSummary } from '../analytics-widget-summary';
 export function OverviewAnalyticsView() {
   return (
     <DashboardContent maxWidth="xl">
-      <Grid container spacing={3}>
-        <Grid xs={12} sm={6} md={3}>
+      <Grid2 container spacing={3}>
+        <Grid2 size={{ xs: 12, sm: 6, md: 3 }}>
           <AnalyticsWidgetSummary
             title="Количество отгрузок"
             percent={2.6}
@@ -26,9 +25,9 @@ export function OverviewAnalyticsView() {
               series: [1, 2, 1, 2, 7, 2, 1, 2],
             }}
           />
-        </Grid>
+        </Grid2>
 
-        <Grid xs={12} sm={6} md={3}>
+        <Grid2 size={{ xs: 12, sm: 6, md: 3 }}>
           <AnalyticsWidgetSummary
             title="Баланс"
             percent={-0.1}
@@ -40,9 +39,9 @@ export function OverviewAnalyticsView() {
               series: [56, 47, 40, 62, 73, 30, 23, 54],
             }}
           />
-        </Grid>
+        </Grid2>
 
-        <Grid xs={12} sm={6} md={3}>
+        <Grid2 size={{ xs: 12, sm: 6, md: 3 }}>
           <AnalyticsWidgetSummary
             title="Отгружено на"
             percent={2.8}
@@ -54,9 +53,9 @@ export function OverviewAnalyticsView() {
               series: [40, 70, 50, 28, 70, 75, 7, 64],
             }}
           />
-        </Grid>
+        </Grid2>
 
-        <Grid xs={12} sm={6} md={3}>
+        <Grid2 size={{ xs: 12, sm: 6, md: 3 }}>
           <AnalyticsWidgetSummary
             title="Количество брака"
             percent={3.6}
@@ -68,9 +67,9 @@ export function OverviewAnalyticsView() {
               series: [56, 30, 23, 54, 47, 40, 62, 73],
             }}
           />
-        </Grid>
+        </Grid2>
 
-        <Grid xs={12} md={6} lg={4}>
+        <Grid2 size={{ xs: 12, lg: 4, md: 6 }}>
           <AnalyticsCurrentVisits
             title="Отгружено на"
             chart={{
@@ -82,9 +81,9 @@ export function OverviewAnalyticsView() {
               ],
             }}
           />
-        </Grid>
+        </Grid2>
 
-        <Grid xs={12} md={6} lg={8}>
+        <Grid2 size={{ xs: 12, lg: 8, md: 6 }}>
           <AnalyticsWebsiteVisits
             title="Соотношение к браку"
             chart={{
@@ -95,16 +94,16 @@ export function OverviewAnalyticsView() {
               ],
             }}
           />
-        </Grid>
+        </Grid2>
 
-        <Grid xs={12} md={6} lg={8}>
+        <Grid2 size={{ xs: 12, lg: 8, md: 6 }}>
           <AnalyticsNews title="Список завершенных отгрузок" list={_posts.slice(0, 5)} />
-        </Grid>
+        </Grid2>
 
-        <Grid xs={12} md={6} lg={4}>
+        <Grid2 size={{ xs: 12, lg: 4, md: 6 }}>
           <AnalyticsOrderTimeline title="Отгрузка Коледино #124" list={_timeline} />
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
     </DashboardContent>
   );
 }

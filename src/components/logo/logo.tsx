@@ -18,10 +18,7 @@ export type LogoProps = BoxProps & {
 };
 
 export const Logo = forwardRef<HTMLDivElement, LogoProps>(
-  (
-    { width, href = '/', height, isSingle = true, disableLink = false, className, sx, ...other },
-    ref
-  ) => {
+  ({ width, href = '/', height, isSingle = true, disableLink = false, className, sx }, ref) => {
     const theme = useTheme();
 
     const gradientId = useId();
@@ -210,7 +207,6 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
           ...(disableLink && { pointerEvents: 'none' }),
           ...sx,
         }}
-        {...other}
       >
         {isSingle ? singleLogo : fullLogo}
       </Box>
