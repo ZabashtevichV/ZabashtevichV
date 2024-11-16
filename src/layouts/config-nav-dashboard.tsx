@@ -48,4 +48,9 @@ export const navData = [
     path: '/404',
     icon: icon('ic-disabled'),
   },
+  {
+    title: 'Заявка на приёмку',
+    path: '/request',
+    icon: icon('ic-get'),
+  },
 ];

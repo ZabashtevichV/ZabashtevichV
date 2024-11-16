@@ -19,7 +19,7 @@ export const RemainsView = () => {
 
       <Box display="flex" alignItems="center" mb={2} mt={10}>
         <Typography variant="h4" flexGrow={1}>
-          Ваши складские остатки
+          Ваши остатки расходников
         </Typography>
       </Box>
 
