@@ -32,7 +32,7 @@ export function AuthLayout({ sx, children, header }: AuthLayoutProps) {
         <HeaderSection
           layoutQuery={layoutQuery}
           slotProps={{
-            container: { maxWidth: false },
+            container: { maxWidth: false, style: {} },
             toolbar: { sx: { bgcolor: 'transparent', backdropFilter: 'unset' } },
           }}
           sx={{
