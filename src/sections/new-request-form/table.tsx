@@ -63,8 +63,8 @@ export const NewRequestFormTable = () => {
               <TableCell size="small">
                 <label htmlFor="contained-button-file">
                   <Button
+                    sx={{ borderRadius: 0, minWidth: '24px', marginRight: '8px' }}
                     title="Добавить изображение"
-                    sx={{ borderRadius: 0, minWidth: '24px' }}
                     component="span"
                   >
                     <AddToPhotos />
@@ -93,7 +93,6 @@ export const NewRequestFormTable = () => {
 
               <TableCell size="small" padding="none">
                 <TextField
-                  size="medium"
                   placeholder="Название"
                   fullWidth
                   InputProps={{
@@ -101,12 +100,13 @@ export const NewRequestFormTable = () => {
                       borderRadius: 0,
                     },
                   }}
+                  size="small"
                 />
               </TableCell>
 
               <TableCell size="small" sx={{ display: 'flex', gap: 0.5 }}>
                 <TextField
-                  size="medium"
+                  size="small"
                   placeholder="Ozon"
                   fullWidth
                   InputProps={{
@@ -116,7 +116,7 @@ export const NewRequestFormTable = () => {
                   }}
                 />
                 <TextField
-                  size="medium"
+                  size="small"
                   placeholder="WB"
                   fullWidth
                   InputProps={{
@@ -126,7 +126,7 @@ export const NewRequestFormTable = () => {
                   }}
                 />
                 <TextField
-                  size="medium"
+                  size="small"
                   placeholder="Яндекс маркет"
                   fullWidth
                   InputProps={{
@@ -139,7 +139,7 @@ export const NewRequestFormTable = () => {
 
               <TableCell size="small">
                 <TextField
-                  size="medium"
+                  size="small"
                   placeholder="Кол-во"
                   fullWidth
                   InputProps={{
@@ -152,7 +152,7 @@ export const NewRequestFormTable = () => {
 
               <TableCell size="small">
                 <TextField
-                  size="medium"
+                  size="small"
                   placeholder="Штрихкод"
                   fullWidth
                   InputProps={{
@@ -173,7 +173,9 @@ export const NewRequestFormTable = () => {
                 <IconButton sx={{ borderRadius: 0 }}>
                   <AddBox color="primary" />
 
-                  <Typography ml={1.5}>Добавить строку</Typography>
+                  <Typography ml={1.5} whiteSpace="nowrap">
+                    Добавить строку
+                  </Typography>
                 </IconButton>
               </TableCell>
             </TableRow>

@@ -1,10 +1,10 @@
-
 import Pagination from '@mui/material/Pagination';
 import Typography from '@mui/material/Typography';
-import { Box, Grid2, Button } from '@mui/material';
+import { Box, Grid2, Button, Link } from '@mui/material';
 
 import { _products } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
+import { RouterLink } from 'src/routes/components';
 
 import { Iconify } from 'src/components/iconify';
 
@@ -19,15 +19,10 @@ export function RequestView() {
           Приемки
         </Typography>
 
-        <Button
-          variant="contained"
-          color="inherit"
-          startIcon={<Iconify icon="mingcute:add-line" />}
-          sx={{ borderRadius: 0 }}
-          href="/request/new"
-        >
+        <Link sx={{ borderRadius: 0 }} href="/new" component={RouterLink}>
+          <Iconify icon="mingcute:add-line" />
           Новая приемка
-        </Button>
+        </Link>
       </Box>
 
       <Typography variant="h4" sx={{ mb: 2 }}>
