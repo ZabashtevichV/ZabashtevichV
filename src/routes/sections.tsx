@@ -18,6 +18,8 @@ export const SignUpPage = lazy(() => import('src/pages/sign-up'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
 export const RemainsPage = lazy(() => import('src/pages/remains'));
 export const RequestPage = lazy(() => import('src/pages/request'));
+export const RequestItemPage = lazy(() => import('src/pages/request-item'));
+export const NewRequestForm = lazy(() => import('src/pages/new-request-form'));
 
 // ----------------------------------------------------------------------
 
@@ -50,6 +52,8 @@ export function Router() {
         { path: 'loads', element: <LoadsPage /> },
         { path: 'remains', element: <RemainsPage /> },
         { path: 'request', element: <RequestPage /> },
+        { path: 'request/:id', element: <RequestItemPage /> },
+        { path: 'request/new', element: <NewRequestForm /> },
       ],
     },
     {

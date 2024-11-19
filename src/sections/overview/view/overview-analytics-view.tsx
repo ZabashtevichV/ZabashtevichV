@@ -32,8 +32,8 @@ export function OverviewAnalyticsView() {
             title="Баланс"
             percent={-0.1}
             total={1352831}
-            color="secondary"
-            icon={<img alt="icon" src="/assets/icons/glass/ic-glass-users.svg" />}
+            color="success"
+            icon={<img alt="icon" src="/assets/icons/glass/coin.svg" />}
             chart={{
               categories: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг'],
               series: [56, 47, 40, 62, 73, 30, 23, 54],

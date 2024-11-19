@@ -1,8 +1,6 @@
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import { RouterLink } from 'src/routes/components';
 
 import { fCurrency } from 'src/utils/format-number';
 import { _timeline } from 'src/_mock';
@@ -60,9 +58,12 @@ export function NewRequest({ product }: { product: ProductItemProps }) {
 
   return (
     <Card
+      component={RouterLink}
+      href="/request/1"
       sx={{
+        textDecoration: 'none',
         cursor: 'pointer',
-        borderRadius: 0,
+        display: 'block',
         '&:hover': {
           outline: '2px solid blue',
         },

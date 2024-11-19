@@ -1,0 +1,5 @@
+.phone_input {
+  border-color: rgba(var(--palette-grey-500Channel) / 0.2) !important;
+  border-radius: var(--shape-borderRadius) !important;
+  padding: 10px 14px 10px 58px !important;
+}
