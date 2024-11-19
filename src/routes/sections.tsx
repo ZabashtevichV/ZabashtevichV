@@ -52,7 +52,7 @@ export function Router() {
         { path: 'loads', element: <LoadsPage /> },
         { path: 'remains', element: <RemainsPage /> },
         { path: 'request', element: <RequestPage /> },
-        { path: 'request/new', element: <NewRequestForm /> },
+        { path: 'new', element: <NewRequestForm /> },
         { path: 'request/:id', element: <RequestItemPage /> },
       ],
     },
