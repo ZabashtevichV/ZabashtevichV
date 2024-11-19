@@ -1,12 +1,13 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
+import { useState } from 'react';
+import { Player } from 'video-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import { Backdrop, Box, ImageList, ImageListItem, Modal } from '@mui/material';
-import { Player } from 'video-react';
-import { useState } from 'react';
+
+import { Box, Modal, Backdrop, ImageList, ImageListItem } from '@mui/material';
+
 import { itemData } from 'src/sections/request-item/data';
 
 export const SwiperImgs = () => {

@@ -1,16 +1,16 @@
-import { useState, useCallback } from 'react';
-import PhoneInput from 'react-phone-input-2';
-
 import 'react-phone-input-2/lib/material.css';
+
+import PhoneInput from 'react-phone-input-2';
+import { useState, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import { TextField } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import LoadingButton from '@mui/lab/LoadingButton';
 
 import { useRouter } from 'src/routes/hooks';
-import { TextField } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

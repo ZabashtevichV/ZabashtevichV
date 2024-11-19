@@ -1,8 +1,9 @@
 import { Box, Typography } from '@mui/material';
 
 import { DashboardContent } from 'src/layouts/dashboard';
-import { CollapsibleTable } from './auxillary/remains-table';
+
 import { CostsTalbe } from './auxillary/costs-table';
+import { CollapsibleTable } from './auxillary/remains-table';
 
 export const RemainsView = () => {
   console.log('hi');

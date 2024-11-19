@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 import { CONFIG } from 'src/config-global';
+
 import { RemainsView } from 'src/sections/remains';
 
 export default function Page() {

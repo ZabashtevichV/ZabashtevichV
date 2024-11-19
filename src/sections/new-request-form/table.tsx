@@ -1,20 +1,21 @@
+import { useState } from 'react';
+
+import { Info, AddBox, AddToPhotos } from '@mui/icons-material';
 import {
-  Button,
-  IconButton,
   Table,
+  Button,
+  Tooltip,
+  TableRow,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
-  TableRow,
   TextField,
-  Tooltip,
+  IconButton,
   Typography,
+  TableContainer,
 } from '@mui/material';
+
 import { Scrollbar } from 'src/components/scrollbar';
-import { Info, AddBox, AddToPhotos } from '@mui/icons-material';
-import { Label } from 'src/components/label';
-import { useState } from 'react';
 
 export const NewRequestFormTable = () => {
   const [image, setImage] = useState('');

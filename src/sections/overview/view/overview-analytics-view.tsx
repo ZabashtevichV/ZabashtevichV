@@ -1,6 +1,7 @@
+import { Grid2 } from '@mui/material';
+
 import { _posts, _timeline } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
-import { Grid2 } from '@mui/material';
 
 import { AnalyticsNews } from '../analytics-news';
 import { AnalyticsCurrentVisits } from '../analytics-current-visits';

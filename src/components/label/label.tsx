@@ -2,7 +2,8 @@ import { forwardRef } from 'react';
 
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
-import { stylesMode, varAlpha } from 'src/theme/styles';
+
+import { varAlpha, stylesMode } from 'src/theme/styles';
 
 import { labelClasses } from './classes';
 

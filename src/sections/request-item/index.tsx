@@ -1,16 +1,11 @@
-import { DashboardContent } from 'src/layouts/dashboard';
-
 import {
-  Backdrop,
   Box,
-  Fade,
   Grid2,
-  ImageList,
-  ImageListItem,
-  Modal,
   Typography,
 } from '@mui/material';
-import { itemData } from './data';
+
+import { DashboardContent } from 'src/layouts/dashboard';
+
 import { GallerySection } from './gallery-section';
 
 export const RequestItemView = () => (

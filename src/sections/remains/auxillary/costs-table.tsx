@@ -1,13 +1,14 @@
 import {
   Card,
   Table,
+  TableRow,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
+  TableContainer,
   TablePagination,
-  TableRow,
 } from '@mui/material';
+
 import { Scrollbar } from 'src/components/scrollbar';
 
 export const CostsTalbe = () => {

@@ -1,12 +1,12 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+
 import { RouterLink } from 'src/routes/components';
 
-import { fCurrency } from 'src/utils/format-number';
 import { _timeline } from 'src/_mock';
 
 import { Label } from 'src/components/label';
-import { ColorPreview } from 'src/components/color-utils';
+
 import { AnalyticsOrderTimeline } from '../overview/analytics-order-timeline';
 
 // ----------------------------------------------------------------------

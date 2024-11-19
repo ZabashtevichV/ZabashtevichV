@@ -1,13 +1,10 @@
 import './video.css';
 import 'video-react/dist/video-react.css';
+
+import { Box } from '@mui/material';
+
 import { SwiperImgs } from 'src/components/swiper';
 
-import { useState } from 'react';
-import { Player } from 'video-react';
-
-import { Backdrop, Box, CardMedia, Fade, ImageList, ImageListItem, Modal } from '@mui/material';
-
-import { itemData } from './data';
 
 export const GallerySection = () => {
   console.log('hi');

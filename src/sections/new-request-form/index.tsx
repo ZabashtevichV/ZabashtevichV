@@ -1,15 +1,17 @@
+import './styles.css';
+import 'react-phone-input-2/lib/material.css';
+
 import { useState } from 'react';
-import { DashboardContent } from 'src/layouts/dashboard';
-import { Box, Card, Checkbox, FormLabel, Grid2, Modal, TextField, Typography } from '@mui/material';
 import PhoneInput from 'react-phone-input-2';
 
-import 'react-phone-input-2/lib/material.css';
-import './styles.css';
+import { Box, Card, Grid2, Checkbox, FormLabel, TextField, Typography } from '@mui/material';
+
+import { DashboardContent } from 'src/layouts/dashboard';
+
 import { NewRequestFormTable } from './table';
 
 export const NewRequestFormView = () => {
   const [isExtended, setIsExtended] = useState(false);
-  const [image, setImage] = useState('');
 
   const onChange = () => {
     setIsExtended((prev) => !prev);
