@@ -13,11 +13,12 @@ import {
   IconButton,
   Typography,
   TableContainer,
+  Box,
 } from '@mui/material';
 
 import { Scrollbar } from 'src/components/scrollbar';
 
-export const NewRequestFormTable = () => {
+export const DetailsTable = () => {
   const [image, setImage] = useState('');
   return (
     <Scrollbar>
@@ -26,14 +27,19 @@ export const NewRequestFormTable = () => {
           <TableHead>
             <TableRow>
               <TableCell>
-                Изображение
-                <Tooltip title="Добавьте изображение товара для легкой идентификации">
-                  <IconButton>
-                    <Info />
-                  </IconButton>
-                </Tooltip>
+                <Box display="flex" alignItems="center">
+                  Изображение
+                  <Tooltip title="Добавьте изображение товара для легкой идентификации">
+                    <IconButton>
+                      <Info />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </TableCell>
+              <TableCell>ID</TableCell>
+
               <TableCell>Название</TableCell>
+
               <TableCell>
                 Артикулы
                 <Tooltip title="Позволяет связать остатки на фулфилменте с остатками на маркетплейсах">
@@ -51,6 +57,8 @@ export const NewRequestFormTable = () => {
                   </IconButton>
                 </Tooltip>
               </TableCell>
+
+              <TableCell>Цвет</TableCell>
             </TableRow>
           </TableHead>
 
@@ -89,6 +97,10 @@ export const NewRequestFormTable = () => {
                 </label>
 
                 <img src={image} alt="" width="40px" height="40px" />
+              </TableCell>
+
+              <TableCell size="small">
+                <Typography>1sdfsd234as234s</Typography>
               </TableCell>
 
               <TableCell size="small" padding="none">
@@ -154,6 +166,19 @@ export const NewRequestFormTable = () => {
                 <TextField
                   size="small"
                   placeholder="Штрихкод"
+                  fullWidth
+                  InputProps={{
+                    style: {
+                      borderRadius: 0,
+                    },
+                  }}
+                />
+              </TableCell>
+
+              <TableCell size="small">
+                <TextField
+                  size="small"
+                  placeholder="Цвет"
                   fullWidth
                   InputProps={{
                     style: {
