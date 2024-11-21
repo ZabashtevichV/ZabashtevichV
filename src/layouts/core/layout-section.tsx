@@ -37,6 +37,7 @@ export function LayoutSection({
         },
 
         '*::-webkit-scrollbar': {
+          height: '0.4em',
           width: '0.4em',
         },
         '*::-webkit-scrollbar-track': {

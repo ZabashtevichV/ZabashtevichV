@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Info, AddBox, AddToPhotos } from '@mui/icons-material';
 import {
+  Box,
   Table,
   Button,
   Tooltip,
@@ -13,38 +14,45 @@ import {
   IconButton,
   Typography,
   TableContainer,
-  Box,
 } from '@mui/material';
 
 import { Scrollbar } from 'src/components/scrollbar';
 
-export const DetailsTable = () => {
+export const ProductsTable = () => {
   const [image, setImage] = useState('');
+
   return (
     <Scrollbar>
-      <TableContainer sx={{ overflow: 'unser' }}>
-        <Table>
+      <TableContainer sx={{ overflow: 'unser', paddingBottom: '4px' }}>
+        <Table sx={{ minWidth: 1500 }} size="small">
           <TableHead>
             <TableRow>
               <TableCell>
                 <Box display="flex" alignItems="center">
                   Изображение
                   <Tooltip title="Добавьте изображение товара для легкой идентификации">
-                    <IconButton>
-                      <Info />
+                    <IconButton size="small">
+                      <Info fontSize="small" />
                     </IconButton>
                   </Tooltip>
                 </Box>
               </TableCell>
-              <TableCell>ID</TableCell>
+              <TableCell width={100}>
+                ID
+                <Tooltip title="Наш внутренний уникальный идентификатор">
+                  <IconButton size="small">
+                    <Info fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
 
               <TableCell>Название</TableCell>
 
               <TableCell>
                 Артикулы
                 <Tooltip title="Позволяет связать остатки на фулфилменте с остатками на маркетплейсах">
-                  <IconButton>
-                    <Info />
+                  <IconButton size="small">
+                    <Info fontSize="small" />
                   </IconButton>
                 </Tooltip>
               </TableCell>
@@ -52,13 +60,24 @@ export const DetailsTable = () => {
               <TableCell>
                 Штрихкод
                 <Tooltip title="Если вы не добавите штрихкод, то мы создадим уникальный для вас, который потом привяжем к карточке товара">
-                  <IconButton>
-                    <Info />
+                  <IconButton size="small">
+                    <Info fontSize="small" />
                   </IconButton>
                 </Tooltip>
               </TableCell>
 
               <TableCell>Цвет</TableCell>
+
+              <TableCell>Описание</TableCell>
+
+              <TableCell>
+                Состав
+                <Tooltip title="Опишите что входит в состав товара">
+                  <IconButton size="small">
+                    <Info fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
             </TableRow>
           </TableHead>
 
@@ -96,11 +115,11 @@ export const DetailsTable = () => {
                   </Button>
                 </label>
 
-                <img src={image} alt="" width="40px" height="40px" />
+                {image && <img src={image} alt="" width="40px" height="40px" />}
               </TableCell>
 
               <TableCell size="small">
-                <Typography>1sdfsd234as234s</Typography>
+                <Typography>1sdfs</Typography>
               </TableCell>
 
               <TableCell size="small" padding="none">
@@ -116,37 +135,39 @@ export const DetailsTable = () => {
                 />
               </TableCell>
 
-              <TableCell size="small" sx={{ display: 'flex', gap: 0.5 }}>
-                <TextField
-                  size="small"
-                  placeholder="Ozon"
-                  fullWidth
-                  InputProps={{
-                    style: {
-                      borderRadius: 0,
-                    },
-                  }}
-                />
-                <TextField
-                  size="small"
-                  placeholder="WB"
-                  fullWidth
-                  InputProps={{
-                    style: {
-                      borderRadius: 0,
-                    },
-                  }}
-                />
-                <TextField
-                  size="small"
-                  placeholder="Яндекс маркет"
-                  fullWidth
-                  InputProps={{
-                    style: {
-                      borderRadius: 0,
-                    },
-                  }}
-                />
+              <TableCell size="small">
+                <Box display="flex" gap={0.5}>
+                  <TextField
+                    size="small"
+                    placeholder="Ozon"
+                    fullWidth
+                    InputProps={{
+                      style: {
+                        borderRadius: 0,
+                      },
+                    }}
+                  />
+                  <TextField
+                    size="small"
+                    placeholder="WB"
+                    fullWidth
+                    InputProps={{
+                      style: {
+                        borderRadius: 0,
+                      },
+                    }}
+                  />
+                  <TextField
+                    size="small"
+                    placeholder="Яндекс маркет"
+                    fullWidth
+                    InputProps={{
+                      style: {
+                        borderRadius: 0,
+                      },
+                    }}
+                  />
+                </Box>
               </TableCell>
 
               <TableCell size="small">
@@ -179,6 +200,32 @@ export const DetailsTable = () => {
                 <TextField
                   size="small"
                   placeholder="Цвет"
+                  fullWidth
+                  InputProps={{
+                    style: {
+                      borderRadius: 0,
+                    },
+                  }}
+                />
+              </TableCell>
+
+              <TableCell>
+                <TextField
+                  placeholder="Описание"
+                  size="small"
+                  fullWidth
+                  InputProps={{
+                    style: {
+                      borderRadius: 0,
+                    },
+                  }}
+                />
+              </TableCell>
+
+              <TableCell>
+                <TextField
+                  placeholder="Состав"
+                  size="small"
                   fullWidth
                   InputProps={{
                     style: {

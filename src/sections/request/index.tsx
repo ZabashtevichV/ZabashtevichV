@@ -1,10 +1,11 @@
+import { Box, Link, Grid2 } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import Typography from '@mui/material/Typography';
-import { Box, Grid2, Button, Link } from '@mui/material';
+
+import { RouterLink } from 'src/routes/components';
 
 import { _products } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
-import { RouterLink } from 'src/routes/components';
 
 import { Iconify } from 'src/components/iconify';
 
