@@ -6,7 +6,7 @@ import { Player } from 'video-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
-import { Box, Modal, Backdrop, ImageList, ImageListItem } from '@mui/material';
+import { Box, Modal, Backdrop, ImageList, ImageListItem, useMediaQuery } from '@mui/material';
 
 import { itemData } from 'src/sections/request-item/data';
 
@@ -15,31 +15,11 @@ export const SwiperImgs = () => {
 
   const handleClose = () => setState({ open: false, src: '' });
 
+  const matches = useMediaQuery('(max-width: 1200px)');
+
   return (
     <Box>
-      <Swiper
-        style={{ maxWidth: '100%' }}
-        pagination={{
-          type: 'fraction',
-        }}
-        navigation
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {itemData.map((item) => (
-          <SwiperSlide key={item.img}>
-            <img
-              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-              src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-              alt={item.title}
-              loading="lazy"
-              style={{ width: '100%' }}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <ImageList sx={{ pr: 1 }} cols={3} rowHeight="auto">
+      <ImageList sx={{ pr: 1 }} cols={matches ? 5 : 3} rowHeight="auto">
         {itemData.map((item) => (
           <ImageListItem
             onClick={() => setState({ open: true, src: item.img })}
