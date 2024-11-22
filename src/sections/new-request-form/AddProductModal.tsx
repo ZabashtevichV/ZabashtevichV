@@ -1,6 +1,6 @@
-import { Box, Card, Modal, Typography } from '@mui/material';
+import { Box, Button, Card, Modal, TextField, Typography } from '@mui/material';
 import * as React from 'react';
-import { alpha } from '@mui/material/styles';
+import { alpha, makeStyles } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -17,6 +17,10 @@ export const AddProductModal = () => (
   <Modal sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} open>
     <Card sx={{ width: '90%' }}>
       <Box style={{ maxHeight: '100%', overflow: 'auto', padding: '24px' }}>
+        <Typography variant="h3" whiteSpace="nowrap" mb={3.5} textAlign="center">
+          Добавление товара в задачу
+        </Typography>
+
         <Typography variant="h4" whiteSpace="nowrap" mb={1.5}>
           Товары в составе данной приёмке
         </Typography>
@@ -28,6 +32,16 @@ export const AddProductModal = () => (
         </Typography>
 
         <EnhancedTable />
+
+        <Box display="flex" gap={1.5} justifyContent="flex-end" flex={1} mt={4.5}>
+          <Button variant="outlined" color="inherit" sx={{ borderRadius: 0 }} size="large">
+            Закрыть окно
+          </Button>
+
+          <Button variant="contained" color="inherit" sx={{ borderRadius: 0 }} size="large">
+            Добавить товары в задачу
+          </Button>
+        </Box>
       </Box>
     </Card>
   </Modal>
@@ -91,9 +105,14 @@ const headCells: readonly HeadCell[] = [
     id: 'amount',
     numeric: true,
     disablePadding: false,
-    label: 'Количество',
+    label: 'Общее количество',
   },
-
+  {
+    id: 'amountToAdd',
+    numeric: true,
+    disablePadding: false,
+    label: 'Добавляемое количество',
+  },
   {
     id: 'id',
     numeric: true,
@@ -155,18 +174,15 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
         },
       ]}
     >
-      {numSelected > 0 ? (
+      {!!numSelected && (
         <Typography sx={{ flex: '1 1 100%' }} color="white" variant="subtitle1" component="div">
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography sx={{ flex: '1 1 100%' }} variant="h6" id="tableTitle" component="div">
-          Nutrition
+          {numSelected} выбрано
         </Typography>
       )}
     </Toolbar>
   );
 }
+
 export default function EnhancedTable() {
   const [selected, setSelected] = React.useState<readonly number[]>([]);
   const [page, setPage] = React.useState(0);
@@ -181,7 +197,7 @@ export default function EnhancedTable() {
     setSelected([]);
   };
 
-  const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
+  const handleClick = (id: number) => {
     const selectedIndex = selected.indexOf(id);
     let newSelected: readonly number[] = [];
 
@@ -236,7 +252,6 @@ export default function EnhancedTable() {
                 return (
                   <TableRow
                     hover
-                    onClick={(event) => handleClick(event, row.id)}
                     role="checkbox"
                     aria-checked={isItemSelected}
                     tabIndex={-1}
@@ -251,6 +266,7 @@ export default function EnhancedTable() {
                         inputProps={{
                           'aria-labelledby': labelId,
                         }}
+                        onClick={() => handleClick(row.id)}
                       />
                     </TableCell>
                     <TableCell component="th" id={labelId} scope="row" padding="none">
@@ -258,6 +274,24 @@ export default function EnhancedTable() {
                     </TableCell>
                     <TableCell align="right">{row.calories}</TableCell>
                     <TableCell align="right">{row.fat}</TableCell>
+                    <TableCell align="center">
+                      <TextField
+                        defaultValue={0}
+                        type="number"
+                        size="small"
+                        sx={{
+                          '.MuiOutlinedInput-input': {
+                            padding: '4px 8px',
+                            fontSize: '12px',
+                          },
+                        }}
+                        InputProps={{
+                          style: {
+                            borderRadius: 0,
+                          },
+                        }}
+                      />
+                    </TableCell>
                     <TableCell align="right">{row.carbs}</TableCell>
                   </TableRow>
                 );

@@ -28,14 +28,21 @@ export const TaskList = () => {
       <Card
         sx={{
           marginTop: '32px',
+          padding: '24px',
+        }}
+      >
+        <Typography variant="h4" whiteSpace="nowrap">
+          Список задач
+        </Typography>
+      </Card>
+
+      <Card
+        sx={{
+          marginTop: '32px',
           minWidth: '900px',
           padding: '24px',
         }}
       >
-        <Typography variant="h4" whiteSpace="nowrap" mb={1.5}>
-          Список задач
-        </Typography>
-
         <Box display="flex" gap={1}>
           <Box display="flex" gap={0.5}>
             <Button

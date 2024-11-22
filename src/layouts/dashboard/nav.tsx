@@ -15,6 +15,8 @@ import { varAlpha } from 'src/theme/styles';
 
 import { Logo } from 'src/components/logo';
 import { Scrollbar } from 'src/components/scrollbar';
+import { Typography } from '@mui/material';
+import { SvgColor } from 'src/components/svg-color';
 
 // ----------------------------------------------------------------------
 
@@ -160,6 +162,47 @@ export function NavContent({ data, slots, sx }: NavContentProps) {
                 </ListItem>
               );
             })}
+          </Box>
+
+          <Box mt="auto" component="ul" pb={3.5}>
+            <Typography variant="h6" textAlign="center">
+              Профиль
+            </Typography>
+
+            <ListItem disableGutters disablePadding>
+              <ListItemButton
+                disableGutters
+                component={RouterLink}
+                href="settings"
+                sx={{
+                  pl: 2,
+                  py: 1,
+                  gap: 2,
+                  pr: 1.5,
+                  borderRadius: 0.75,
+                  typography: 'body2',
+                  fontWeight: 'fontWeightMedium',
+                  color: 'var(--layout-nav-item-color)',
+                  minHeight: 'var(--layout-nav-item-height)',
+                  ...(pathname === 'settings' && {
+                    fontWeight: 'fontWeightSemiBold',
+                    bgcolor: 'var(--layout-nav-item-active-bg)',
+                    color: 'var(--layout-nav-item-active-color)',
+                    '&:hover': {
+                      bgcolor: 'var(--layout-nav-item-hover-bg)',
+                    },
+                  }),
+                }}
+              >
+                <Box component="span" sx={{ width: 24, height: 24 }}>
+                  <SvgColor width="100%" height="100%" src="/assets/icons/navbar/ic-gear.svg" />
+                </Box>
+
+                <Box component="span" flexGrow={1}>
+                  Настройка
+                </Box>
+              </ListItemButton>
+            </ListItem>
           </Box>
         </Box>
       </Scrollbar>
