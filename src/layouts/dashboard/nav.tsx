@@ -164,10 +164,45 @@ export function NavContent({ data, slots, sx }: NavContentProps) {
             })}
           </Box>
 
-          <Box mt="auto" component="ul" pb={3.5}>
+          <Box mt="auto" component="ul" pb={3.5} sx={sx}>
             <Typography variant="h6" textAlign="center">
               Профиль
             </Typography>
+
+            <ListItem disableGutters disablePadding>
+              <ListItemButton
+                disableGutters
+                component={RouterLink}
+                href="finance"
+                sx={{
+                  pl: 2,
+                  py: 1,
+                  gap: 2,
+                  pr: 1.5,
+                  borderRadius: 0.75,
+                  typography: 'body2',
+                  fontWeight: 'fontWeightMedium',
+                  color: 'var(--layout-nav-item-color)',
+                  minHeight: 'var(--layout-nav-item-height)',
+                  ...(pathname === 'settings' && {
+                    fontWeight: 'fontWeightSemiBold',
+                    bgcolor: 'var(--layout-nav-item-active-bg)',
+                    color: 'var(--layout-nav-item-active-color)',
+                    '&:hover': {
+                      bgcolor: 'var(--layout-nav-item-hover-bg)',
+                    },
+                  }),
+                }}
+              >
+                <Box component="span" sx={{ width: 24, height: 24 }}>
+                  <SvgColor width="100%" height="100%" src="/assets/icons/navbar/ic-money.svg" />
+                </Box>
+
+                <Box component="span" flexGrow={1}>
+                  Финансы
+                </Box>
+              </ListItemButton>
+            </ListItem>
 
             <ListItem disableGutters disablePadding>
               <ListItemButton
@@ -199,7 +234,7 @@ export function NavContent({ data, slots, sx }: NavContentProps) {
                 </Box>
 
                 <Box component="span" flexGrow={1}>
-                  Настройка
+                  Настройки
                 </Box>
               </ListItemButton>
             </ListItem>

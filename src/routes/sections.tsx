@@ -21,6 +21,7 @@ export const RequestPage = lazy(() => import('src/pages/request'));
 export const RequestItemPage = lazy(() => import('src/pages/request-item'));
 export const NewRequestFormPage = lazy(() => import('src/pages/new-request-form'));
 export const SettingsPage = lazy(() => import('src/pages/settings'));
+export const FinancePage = lazy(() => import('src/pages/finance'));
 
 // ----------------------------------------------------------------------
 
@@ -56,6 +57,7 @@ export function Router() {
         { path: 'new', element: <NewRequestFormPage /> },
         { path: 'request/:id', element: <RequestItemPage /> },
         { path: 'settings', element: <SettingsPage /> },
+        { path: 'finance', element: <FinancePage /> },
       ],
     },
     {
