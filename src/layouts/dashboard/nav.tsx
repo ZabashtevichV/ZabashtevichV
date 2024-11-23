@@ -3,6 +3,7 @@ import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
 import { useEffect } from 'react';
 
 import Box from '@mui/material/Box';
+import { Typography } from '@mui/material';
 import ListItem from '@mui/material/ListItem';
 import { useTheme } from '@mui/material/styles';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -14,9 +15,8 @@ import { RouterLink } from 'src/routes/components';
 import { varAlpha } from 'src/theme/styles';
 
 import { Logo } from 'src/components/logo';
-import { Scrollbar } from 'src/components/scrollbar';
-import { Typography } from '@mui/material';
 import { SvgColor } from 'src/components/svg-color';
+import { Scrollbar } from 'src/components/scrollbar';
 
 // ----------------------------------------------------------------------
 

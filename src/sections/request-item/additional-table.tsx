@@ -1,15 +1,15 @@
 import {
   Paper,
   Table,
+  Toolbar,
+  TableRow,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
-  TableRow,
-  TextField,
-  Toolbar,
   Typography,
+  TableContainer,
 } from '@mui/material';
+
 import { Scrollbar } from 'src/components/scrollbar';
 
 export const AdditionalTable = () => (

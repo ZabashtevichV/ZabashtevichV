@@ -1,15 +1,17 @@
+import { useState } from 'react';
+
 import {
   Box,
-  Button,
   Card,
-  FormControl,
-  InputLabel,
-  MenuItem,
+  Button,
   Select,
+  MenuItem,
   TextField,
+  InputLabel,
   Typography,
+  FormControl,
 } from '@mui/material';
-import { useState } from 'react';
+
 import { DashboardContent } from 'src/layouts/dashboard';
 
 export const SettingsView = () => {

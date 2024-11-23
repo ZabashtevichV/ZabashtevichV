@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Info, AddBox, AddToPhotos } from '@mui/icons-material';
+import { Info } from '@mui/icons-material';
 import {
   Box,
   Table,

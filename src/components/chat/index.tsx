@@ -1,14 +1,17 @@
-import React, { useState, useRef, useEffect, KeyboardEvent } from 'react';
+import type { KeyboardEvent } from 'react';
+
+import React, { useRef, useState, useEffect } from 'react';
+
 import {
   Box,
+  Card,
+  Paper,
+  Alert,
+  Avatar,
+  styled,
   TextField,
   IconButton,
   Typography,
-  Paper,
-  Avatar,
-  Alert,
-  styled,
-  Card,
 } from '@mui/material';
 
 const StyledPaper = styled(Paper)(() => ({

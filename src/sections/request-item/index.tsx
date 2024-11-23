@@ -1,12 +1,12 @@
-import { Box, Card, Grid2, Typography, useTheme } from '@mui/material';
+import { Box, Card, Grid2, useTheme, Typography } from '@mui/material';
 
 import { _timeline } from 'src/_mock';
+import { DashboardContent } from 'src/layouts/dashboard';
+
 import { Label } from 'src/components/label';
 import ChatComponent from 'src/components/chat';
 
-import { DashboardContent } from 'src/layouts/dashboard';
 import { RequestProductsTable } from './table';
-
 import { GallerySection } from './gallery-section';
 import { AdditionalTable } from './additional-table';
 import { AnalyticsOrderTimeline } from '../overview/analytics-order-timeline';

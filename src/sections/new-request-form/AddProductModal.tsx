@@ -1,17 +1,16 @@
-import { Box, Button, Card, Modal, TextField, Typography } from '@mui/material';
 import * as React from 'react';
-import { alpha, makeStyles } from '@mui/material/styles';
+
 import Table from '@mui/material/Table';
+import Paper from '@mui/material/Paper';
+import Toolbar from '@mui/material/Toolbar';
+import TableRow from '@mui/material/TableRow';
+import Checkbox from '@mui/material/Checkbox';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
+import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
-import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
+import { Box, Card, Modal, Button, TextField, Typography } from '@mui/material';
 
 export const AddProductModal = () => (
   <Modal sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} open>

@@ -3,8 +3,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useState } from 'react';
 import { Player } from 'video-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
 
 import { Box, Modal, Backdrop, ImageList, ImageListItem, useMediaQuery } from '@mui/material';
 

@@ -1,15 +1,15 @@
+import { PieChart, LineChart } from '@mui/x-charts';
 import {
-  Box,
   Card,
   Grid2,
   Table,
+  TableRow,
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
   Typography,
 } from '@mui/material';
-import { LineChart, PieChart } from '@mui/x-charts';
+
 import { DashboardContent } from 'src/layouts/dashboard';
 
 const pData = [0, 190, 20, 300, 100, 200, 500, 150];
