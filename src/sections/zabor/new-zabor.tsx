@@ -21,7 +21,7 @@ export type ProductItemProps = {
   priceSale: number | null;
 };
 
-export function NewRequest({ product }: { product: ProductItemProps }) {
+export function NewZabor({ product }: { product: ProductItemProps }) {
   const renderStatus = (
     <Label
       variant="filled"

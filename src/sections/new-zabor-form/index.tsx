@@ -27,7 +27,7 @@ import { TaskList } from './task-list';
 import { CargoTable } from './cargo-table';
 import { ProductsTable } from './products-table';
 
-export const NewRequestFormView = () => {
+export const NewZaborFormView = () => {
   const [isExtended, setIsExtended] = useState(false);
   const [isTaskTableVisible, setIsTaskTableVisible] = useState(false);
 

@@ -1,56 +1,166 @@
-import { Box, Link, Grid2 } from '@mui/material';
-import Pagination from '@mui/material/Pagination';
-import Typography from '@mui/material/Typography';
-
-import { RouterLink } from 'src/routes/components';
-
-import { _products } from 'src/_mock';
-import { DashboardContent } from 'src/layouts/dashboard';
-
+import { Box, Button, Card, Grid2, Link, Typography } from '@mui/material';
 import { Iconify } from 'src/components/iconify';
+import { DashboardContent } from 'src/layouts/dashboard';
+import { RouterLink } from 'src/routes/components';
+import { useTheme } from '@mui/material/styles';
 
-import { NewRequest } from './new-request';
-import { FinishedRequest } from './finished-request';
+export const RequestView = () => {
+  const theme = useTheme();
 
-export function RequestView() {
   return (
     <DashboardContent>
-      <Box display="flex" alignItems="center" mb={5}>
-        <Typography variant="h3" flexGrow={1}>
-          Приемки
+      <Card sx={{ padding: '24px' }}>
+        <Typography variant="h3" mb={1.5}>
+          Создание заявок
         </Typography>
 
-        <Link sx={{ borderRadius: 0 }} href="/new" component={RouterLink}>
-          <Iconify icon="mingcute:add-line" />
-          Новая приемка
-        </Link>
-      </Box>
+        <Typography variant="subtitle1">Выберите необходимый тип заявки</Typography>
 
-      <Typography variant="h4" sx={{ mb: 2 }}>
-        Новые заявки
-      </Typography>
+        <Grid2 mt={2.5} container spacing={4}>
+          <Grid2 size={{ lg: 6, sm: 12, xs: 12, md: 6 }}>
+            <Box
+              sx={{
+                border: `1px solid ${theme.vars.palette.grey[300]}`,
+                borderRadius: '24px',
+                padding: '24px',
+                display: 'flex',
+                gap: '20px',
+              }}
+            >
+              <img src="/assets/icons/car.svg" alt="" width={40} height={40} />
 
-      <Grid2 container spacing={3} width="100%">
-        {_products.map((product) => (
-          <Grid2 key={product.id} size={{ xs: 12, sm: 12, md: 12 }}>
-            <NewRequest product={product} />
+              <Box>
+                <Typography variant="h5" mb={1}>
+                  Заявка на поставку
+                </Typography>
+
+                <Typography color="textSecondary" mb={2}>
+                  Заявка на поставку с предварительным расчетом услуг. После согласования ожидается
+                  доставка на наш склад и приём товара.
+                </Typography>
+
+                <Link
+                  component={RouterLink}
+                  href="zabor"
+                  sx={{
+                    width: 'max-content',
+                    alignItems: 'center',
+                    borderRadius: '12px',
+                    padding: '4px 12px',
+                    display: 'flex',
+                    gap: '6px',
+                    border: 1,
+                    '&:hover': {
+                      backgroundColor: theme.vars.palette.primary.main,
+                      textDecoration: 'none',
+                      color: 'white',
+                    },
+                  }}
+                >
+                  <Iconify icon="mingcute:add-line" />
+                  Создать
+                </Link>
+              </Box>
+            </Box>
           </Grid2>
-        ))}
-      </Grid2>
 
-      <Typography variant="h4" sx={{ mt: 6, mb: 2 }}>
-        Завершенные заявки
-      </Typography>
+          <Grid2 size={{ lg: 6, sm: 12, xs: 12, md: 6 }}>
+            <Box
+              sx={{
+                border: `1px solid ${theme.vars.palette.grey[300]}`,
+                borderRadius: '24px',
+                padding: '24px',
+                display: 'flex',
+                height: '100%',
+                gap: '20px',
+              }}
+            >
+              <img src="/assets/icons/car.svg" alt="" width={40} height={40} />
 
-      <Grid2 container spacing={3} width="100%">
-        {_products.map((product) => (
-          <Grid2 key={product.id} size={{ xs: 12, sm: 12, md: 12 }}>
-            <FinishedRequest product={product} />
+              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Typography variant="h5" mb={1}>
+                  Заявка на поставку FBO
+                </Typography>
+
+                <Typography color="textSecondary" mb={2}>
+                  После согласования заявки ожидается отгрузка на маркетплейсы товаров с нашего
+                  склада.
+                </Typography>
+
+                <Link
+                  component={RouterLink}
+                  href="zabor"
+                  sx={{
+                    width: 'max-content',
+                    alignItems: 'center',
+                    borderRadius: '12px',
+                    padding: '4px 12px',
+                    marginTop: 'auto',
+                    display: 'flex',
+                    gap: '6px',
+                    border: 1,
+                    '&:hover': {
+                      backgroundColor: theme.vars.palette.primary.main,
+                      textDecoration: 'none',
+                      color: 'white',
+                    },
+                  }}
+                >
+                  <Iconify icon="mingcute:add-line" />
+                  Создать
+                </Link>
+              </Box>
+            </Box>
           </Grid2>
-        ))}
-      </Grid2>
 
-      <Pagination count={10} color="primary" sx={{ mt: 8, mx: 'auto' }} />
+          <Grid2 size={{ lg: 6, sm: 12, xs: 12, md: 6 }}>
+            <Box
+              sx={{
+                border: `1px solid ${theme.vars.palette.grey[300]}`,
+                borderRadius: '24px',
+                padding: '24px',
+                display: 'flex',
+                gap: '20px',
+              }}
+            >
+              <img src="/assets/icons/slave.svg" alt="" width={40} height={40} />
+
+              <Box>
+                <Typography variant="h5" mb={1}>
+                  Заявка на работу с товаром
+                </Typography>
+
+                <Typography color="textSecondary" mb={2}>
+                  Укажите перечень необходимых задач, которые нужно сделать с товаром: упаковка,
+                  фотосъемка, видеосъемка, проверка на брак и другие.
+                </Typography>
+
+                <Link
+                  component={RouterLink}
+                  href="zabor"
+                  sx={{
+                    width: 'max-content',
+                    alignItems: 'center',
+                    borderRadius: '12px',
+                    padding: '4px 12px',
+                    display: 'flex',
+                    gap: '6px',
+                    border: 1,
+                    '&:hover': {
+                      backgroundColor: theme.vars.palette.primary.main,
+                      textDecoration: 'none',
+                      color: 'white',
+                    },
+                  }}
+                >
+                  <Iconify icon="mingcute:add-line" />
+                  Создать
+                </Link>
+              </Box>
+            </Box>
+          </Grid2>
+        </Grid2>
+      </Card>
     </DashboardContent>
   );
-}
+};

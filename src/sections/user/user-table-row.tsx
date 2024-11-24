@@ -72,6 +72,8 @@ export function UserTableRow({ row, selected, onSelectRow }: UserTableRowProps) 
           <Label color={(row.status === 'Неактивный' && 'error') || 'success'}>{row.status}</Label>
         </TableCell>
 
+        <TableCell>Логист</TableCell>
+
         <TableCell align="right">
           <IconButton onClick={handleOpenPopover}>
             <Iconify icon="eva:more-vertical-fill" />

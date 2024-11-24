@@ -85,6 +85,8 @@ export function UserView() {
                   { id: 'role', label: 'Роль' },
                   { id: 'isCalled', label: 'Обработан', align: 'center' },
                   { id: 'status', label: 'Статус' },
+                  { id: 'role', label: 'Роль' },
+
                   { id: '' },
                 ]}
               />

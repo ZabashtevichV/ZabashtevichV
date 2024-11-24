@@ -49,7 +49,7 @@ export const navData = [
     icon: icon('ic-disabled'),
   },
   {
-    title: 'Заявка на приёмку',
+    title: 'Создание заявок',
     path: '/request',
     icon: icon('ic-get'),
   },

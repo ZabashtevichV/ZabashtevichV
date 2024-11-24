@@ -6,7 +6,7 @@ import { Player } from 'video-react';
 
 import { Box, Modal, Backdrop, ImageList, ImageListItem, useMediaQuery } from '@mui/material';
 
-import { itemData } from 'src/sections/request-item/data';
+import { itemData } from 'src/sections/zabor-item/data';
 
 export const SwiperImgs = () => {
   const [{ open, src }, setState] = useState({ open: false, src: '' });

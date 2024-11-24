@@ -3,7 +3,6 @@ import Card from '@mui/material/Card';
 
 import { Label } from 'src/components/label';
 
-
 // ----------------------------------------------------------------------
 
 export type ProductItemProps = {
@@ -16,7 +15,7 @@ export type ProductItemProps = {
   priceSale: number | null;
 };
 
-export function FinishedRequest({ product }: { product: ProductItemProps }) {
+export function FinishedZabor({ product }: { product: ProductItemProps }) {
   const renderStatus = (
     <Label
       variant="filled"

@@ -16,7 +16,7 @@ import {
 
 import { Scrollbar } from 'src/components/scrollbar';
 
-export const RequestProductsTable = () => {
+export const ZaborProductsTable = () => {
   const [image, setImage] = useState('');
 
   return (

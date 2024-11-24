@@ -6,12 +6,12 @@ import { DashboardContent } from 'src/layouts/dashboard';
 import { Label } from 'src/components/label';
 import ChatComponent from 'src/components/chat';
 
-import { RequestProductsTable } from './table';
+import { ZaborProductsTable } from './table';
 import { GallerySection } from './gallery-section';
 import { AdditionalTable } from './additional-table';
 import { AnalyticsOrderTimeline } from '../overview/analytics-order-timeline';
 
-export const RequestItemView = () => {
+export const ZaborItemView = () => {
   const theme = useTheme();
 
   return (
@@ -198,7 +198,7 @@ export const RequestItemView = () => {
               Товары в составе заявки
             </Typography>
 
-            <RequestProductsTable />
+            <ZaborProductsTable />
           </Card>
         </Grid2>
 
