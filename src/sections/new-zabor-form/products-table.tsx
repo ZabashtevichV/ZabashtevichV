@@ -20,6 +20,7 @@ import { Scrollbar } from 'src/components/scrollbar';
 
 export const ProductsTable = () => {
   const [image, setImage] = useState('');
+  console.log(image);
 
   return (
     <Scrollbar>

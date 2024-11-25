@@ -7,6 +7,9 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import { varAlpha } from 'src/theme/styles';
 import { AuthLayout } from 'src/layouts/auth';
 import { DashboardLayout } from 'src/layouts/dashboard';
+import ModalProvider from 'src/modal';
+import { Provider } from 'react-redux';
+import store from 'src/store';
 
 // ----------------------------------------------------------------------
 
@@ -23,6 +26,7 @@ export const NewRequestFormPage = lazy(() => import('src/pages/new-zabor-form'))
 export const SettingsPage = lazy(() => import('src/pages/settings'));
 export const FinancePage = lazy(() => import('src/pages/finance'));
 export const RequestPage = lazy(() => import('src/pages/request'));
+export const PackPage = lazy(() => import('src/pages/pack'));
 
 // ----------------------------------------------------------------------
 
@@ -44,9 +48,13 @@ export function Router() {
     {
       element: (
         <DashboardLayout>
-          <Suspense fallback={renderFallback}>
-            <Outlet />
-          </Suspense>
+          <Provider store={store}>
+            <ModalProvider />
+
+            <Suspense fallback={renderFallback}>
+              <Outlet />
+            </Suspense>
+          </Provider>
         </DashboardLayout>
       ),
       children: [
@@ -60,6 +68,7 @@ export function Router() {
         { path: 'settings', element: <SettingsPage /> },
         { path: 'finance', element: <FinancePage /> },
         { path: 'request', element: <RequestPage /> },
+        { path: 'request/pack', element: <PackPage /> },
       ],
     },
     {

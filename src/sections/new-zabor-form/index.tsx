@@ -23,7 +23,7 @@ import {
 
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import { TaskList } from './task-list';
+import { TaskList } from '../../components/task-list';
 import { CargoTable } from './cargo-table';
 import { ProductsTable } from './products-table';
 
