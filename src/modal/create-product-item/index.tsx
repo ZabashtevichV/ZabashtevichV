@@ -1,15 +1,27 @@
-import { Box, Button, Card, Container, Grid2, Modal, TextField, Typography } from '@mui/material';
-import { ImageUploader } from 'src/components/image-uploader';
-import { Scrollbar } from 'src/components/scrollbar';
+import { useDispatch } from 'react-redux';
+
+import { Box, Card, Grid2, Modal, Button, Container, TextField, Typography } from '@mui/material';
+
+import { useSelector } from 'src/store';
 import { layoutClasses } from 'src/layouts/classes';
+import { closeModal } from 'src/store/modal/create-product-item';
+
+import { Scrollbar } from 'src/components/scrollbar';
+import { ImageUploader } from 'src/components/image-uploader';
 
 export default function CreateProductItem() {
-  console.log(1);
+  const isOpen = useSelector((state) => state.createProductItem.isModalOpen);
+  const dispatch = useDispatch();
+
+  const onClose = () => {
+    dispatch(closeModal());
+  };
+
   return (
     <Modal
       sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       disableAutoFocus
-      open
+      open={isOpen}
     >
       <Container maxWidth="lg" className={layoutClasses.content}>
         <Card sx={{ padding: '24px' }}>
@@ -43,6 +55,10 @@ export default function CreateProductItem() {
                   <TextField label="Артикул YM" fullWidth size="small" />
                 </Box>
 
+                <Box sx={{ marginTop: '12px' }}>
+                  <TextField label="Состав" fullWidth size="small" />
+                </Box>
+
                 <Box sx={{ marginTop: '12px' }} display="flex" gap={2}>
                   <TextField label="Описание" fullWidth size="small" multiline minRows={5} />
                 </Box>
@@ -60,7 +76,7 @@ export default function CreateProductItem() {
             </Typography>
 
             <Box display="flex" gap={1} justifyContent="flex-end" mt={2}>
-              <Button size="large" variant="outlined" color="inherit">
+              <Button size="large" variant="outlined" color="inherit" onClick={onClose}>
                 Закрыть
               </Button>
 

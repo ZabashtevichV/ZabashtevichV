@@ -1,5 +1,7 @@
-import { Box, Button, Card, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
+
 import { DashboardContent } from 'src/layouts/dashboard';
+
 import { TaskList } from '../../components/task-list';
 
 export const PackView = () => (

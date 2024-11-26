@@ -9,13 +9,16 @@ import { DateTimePicker } from '@mui/x-date-pickers';
 import {
   Box,
   Card,
+  Step,
   Grid2,
   Button,
   Select,
+  Stepper,
   Checkbox,
   MenuItem,
   FormLabel,
   TextField,
+  StepLabel,
   Typography,
   InputLabel,
   FormControl,
@@ -23,9 +26,9 @@ import {
 
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import { TaskList } from '../../components/task-list';
 import { CargoTable } from './cargo-table';
 import { ProductsTable } from './products-table';
+import { TaskList } from '../../components/task-list';
 
 export const NewZaborFormView = () => {
   const [isExtended, setIsExtended] = useState(false);
@@ -38,6 +41,16 @@ export const NewZaborFormView = () => {
   const taskHandler = () => setIsTaskTableVisible((prev) => !prev);
   return (
     <DashboardContent maxWidth={false}>
+      <Card sx={{ padding: '24px', marginBottom: '32px' }}>
+        <Stepper activeStep={0}>
+          {['Описание заявки', 'Дополнительные действия'].map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Card>
+
       <Card
         sx={{
           flexDirection: 'column',
@@ -249,7 +262,7 @@ export const NewZaborFormView = () => {
           color="inherit"
           sx={{ marginTop: '32px', width: 'max-content' }}
         >
-          Отправить заявку на согласование
+          Следующий шаг
         </Button>
       </Box>
     </DashboardContent>

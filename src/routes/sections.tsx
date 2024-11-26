@@ -1,15 +1,15 @@
 import { lazy, Suspense } from 'react';
+import { Provider } from 'react-redux';
 import { Outlet, Navigate, useRoutes } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
+import store from 'src/store';
+import ModalProvider from 'src/modal';
 import { varAlpha } from 'src/theme/styles';
 import { AuthLayout } from 'src/layouts/auth';
 import { DashboardLayout } from 'src/layouts/dashboard';
-import ModalProvider from 'src/modal';
-import { Provider } from 'react-redux';
-import store from 'src/store';
 
 // ----------------------------------------------------------------------
 

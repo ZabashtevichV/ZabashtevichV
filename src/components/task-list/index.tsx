@@ -1,39 +1,33 @@
-import { useState } from 'react';
 
-import { Add, Info, Remove } from '@mui/icons-material';
+import type { UserProps } from 'src/sections/user/user-table-row';
+
+import { Add, Remove } from '@mui/icons-material';
 import {
   Box,
   Card,
+  Table,
   Button,
   Select,
   MenuItem,
   TextField,
+  TableBody,
   InputLabel,
   Typography,
   FormControl,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Tooltip,
-  IconButton,
   TableContainer,
-  TablePagination,
 } from '@mui/material';
 
-import { Iconify } from 'src/components/iconify';
-import { Scrollbar } from 'src/components/scrollbar';
-import { UserProps } from 'src/sections/user/user-table-row';
-import { applyFilter, emptyRows } from 'src/sections/user/utils';
-import { useTable } from 'src/sections/user/view';
 import { _users } from 'src/_mock';
 
-import { AddProductModal } from '../../sections/new-zabor-form/AddProductModal';
-import { TaskTableHead } from './task-table-head';
-import { TableEmptyRows } from './table-empty-rows';
+import { Scrollbar } from 'src/components/scrollbar';
+
+import { useTable } from 'src/sections/user/view';
+import { emptyRows, applyFilter } from 'src/sections/user/utils';
+
 import { TaskTableRow } from './task-table-row';
+import { TaskTableHead } from './task-table-head';
 import { TaskTableNoData } from './table-no-data';
+import { TableEmptyRows } from './table-empty-rows';
 
 export const TaskList = () => {
   const dataFiltered: UserProps[] = applyFilter({
@@ -61,6 +55,10 @@ export const TaskList = () => {
           padding: '24px',
         }}
       >
+        <Typography variant="h3" mb={2}>
+          Задача #1
+        </Typography>
+
         <Scrollbar sx={{ paddingTop: '6px' }}>
           <Box display="flex" gap={1} mb={2.5}>
             <FormControl sx={{ maxWidth: '300px', width: '100%' }} size="small">
@@ -92,7 +90,7 @@ export const TaskList = () => {
                   { id: 'company', label: 'Company' },
                   { id: 'role', label: 'Role' },
                   { id: 'isVerified', label: 'Verified', align: 'center' },
-                  { id: 'status', label: 'Status' },
+                  { id: 'comment', label: 'Комментарий' },
                   { id: '' },
                 ]}
               />
@@ -156,6 +154,23 @@ export const TaskList = () => {
           </Box>
         </Scrollbar>
       </Card>
+
+      <Button
+        title="Добавить дополнительную задачу"
+        sx={{
+          padding: '0 16px',
+          minWidth: '40px',
+          display: 'flex',
+          width: 'max-content',
+          marginTop: '24px',
+        }}
+        variant="contained"
+        color="primary"
+        size="large"
+      >
+        <Add fontSize="medium" />
+        Добавить задачу
+      </Button>
     </>
   );
 };

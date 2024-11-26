@@ -1,5 +1,6 @@
-import { Box, Button, Skeleton } from '@mui/material';
 import { useState } from 'react';
+
+import { Box, Button, Skeleton } from '@mui/material';
 
 export const ImageUploader = () => {
   const [image, setImage] = useState('');
