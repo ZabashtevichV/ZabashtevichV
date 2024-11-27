@@ -44,7 +44,7 @@ export const RequestView = () => {
 
                 <Link
                   component={RouterLink}
-                  href="zabor"
+                  href="new"
                   sx={{
                     width: 'max-content',
                     alignItems: 'center',

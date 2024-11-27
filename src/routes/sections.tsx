@@ -63,7 +63,7 @@ export function Router() {
         { path: 'loads', element: <LoadsPage /> },
         { path: 'remains', element: <RemainsPage /> },
         { path: 'request/zabor', element: <ZaborPage /> },
-        { path: 'new', element: <NewRequestFormPage /> },
+        { path: 'request/new', element: <NewRequestFormPage /> },
         { path: 'request/:id', element: <RequestItemPage /> },
         { path: 'settings', element: <SettingsPage /> },
         { path: 'finance', element: <FinancePage /> },

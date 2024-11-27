@@ -9,7 +9,7 @@ import { closeModal } from 'src/store/modal/create-product-item';
 import { Scrollbar } from 'src/components/scrollbar';
 import { ImageUploader } from 'src/components/image-uploader';
 
-export default function CreateProductItem() {
+export default function CreateProductItemModal() {
   const isOpen = useSelector((state) => state.createProductItem.isModalOpen);
   const dispatch = useDispatch();
 
@@ -43,8 +43,8 @@ export default function CreateProductItem() {
                   <TextField label="Цвет *" fullWidth size="small" />
                 </Box>
 
-                <Box sx={{ marginTop: '12px' }} display="flex" gap={2}>
-                  <TextField label="Баркод *" fullWidth size="small" />
+                <Box sx={{ marginTop: '12px' }}>
+                  <TextField label="Состав *" fullWidth size="small" />
                 </Box>
 
                 <Box sx={{ marginTop: '12px' }} display="flex" gap={2}>
@@ -55,8 +55,8 @@ export default function CreateProductItem() {
                   <TextField label="Артикул YM" fullWidth size="small" />
                 </Box>
 
-                <Box sx={{ marginTop: '12px' }}>
-                  <TextField label="Состав" fullWidth size="small" />
+                <Box sx={{ marginTop: '12px' }} display="flex" gap={2}>
+                  <TextField label="Баркод" fullWidth size="small" />
                 </Box>
 
                 <Box sx={{ marginTop: '12px' }} display="flex" gap={2}>

@@ -1,7 +1,13 @@
 import { lazy } from 'react';
 
-const CreateProductItem = lazy(() => import('./create-product-item'));
+const CreateProductItemModal = lazy(() => import('./create-product-item'));
+const AddProcessModal = lazy(() => import('./add-process'));
 
-const ModalProvider = () => <CreateProductItem />;
+const ModalProvider = () => (
+  <>
+    <CreateProductItemModal />
+    <AddProcessModal />
+  </>
+);
 
 export default ModalProvider;

@@ -5,8 +5,8 @@ import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Label } from 'src/components/label';
 import ChatComponent from 'src/components/chat';
+import { ProductCard } from 'src/components/product-card';
 
-import { ZaborProductsTable } from './table';
 import { GallerySection } from './gallery-section';
 import { AdditionalTable } from './additional-table';
 import { AnalyticsOrderTimeline } from '../overview/analytics-order-timeline';
@@ -18,7 +18,7 @@ export const ZaborItemView = () => {
     <DashboardContent>
       <Box display="flex" alignItems="center" mb={5}>
         <Typography variant="h3" flexGrow={1}>
-          Описание заявки
+          Оформление заявки
         </Typography>
       </Box>
 
@@ -191,29 +191,23 @@ export const ZaborItemView = () => {
         </Grid2>
       </Grid2>
 
-      <Grid2 container mt={2.5}>
-        <Grid2 size={{ lg: 12, md: 12, sm: 12, xs: 12 }}>
-          <Card sx={{ padding: '24px', width: '100%' }}>
-            <Typography variant="h3" textAlign="center" mb={2.5}>
-              Товары в составе заявки
-            </Typography>
+      <Card sx={{ padding: '12px', width: '100%', marginTop: '24px' }}>
+        <Typography variant="h4" textAlign="center">
+          Товары в составе заявки
+        </Typography>
+      </Card>
 
-            <ZaborProductsTable />
-          </Card>
+      <Grid2 container mt={3} spacing={2}>
+        <Grid2 size={{ xl: 6, lg: 12, md: 12, sm: 12, xs: 12 }}>
+          <ProductCard isPreview />
         </Grid2>
 
-        <Grid2 size={{ lg: 12, md: 12, sm: 12, xs: 12 }} mt={2.5}>
-          <Card sx={{ padding: '24px' }}>
-            <Typography variant="h3" textAlign="center" mb={2.5}>
-              Дополнительные действия
-            </Typography>
-
-            <AdditionalTable />
-          </Card>
+        <Grid2 size={{ xl: 6, lg: 12, md: 12, sm: 12, xs: 12 }}>
+          <ProductCard isPreview />
         </Grid2>
       </Grid2>
 
-      <Grid2 container mt={2.5} spacing={1.5}>
+      <Grid2 container mt={3} spacing={2}>
         <Grid2 size={{ lg: 6, md: 6, sm: 12, xs: 12 }}>
           <AnalyticsOrderTimeline title="" list={_timeline} />
         </Grid2>
@@ -221,8 +215,8 @@ export const ZaborItemView = () => {
         <Grid2 size={{ lg: 6, md: 6, sm: 12, xs: 12 }}>
           <Card sx={{ padding: '24px' }}>
             <Box>
-              <Typography variant="h3" mb={2.5}>
-                Расчёт
+              <Typography variant="h3" mb={3}>
+                Итоговый расчёт
               </Typography>
 
               <Box
