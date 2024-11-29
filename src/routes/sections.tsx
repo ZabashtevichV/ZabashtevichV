@@ -27,6 +27,7 @@ export const SettingsPage = lazy(() => import('src/pages/settings'));
 export const FinancePage = lazy(() => import('src/pages/finance'));
 export const RequestPage = lazy(() => import('src/pages/request'));
 export const PackPage = lazy(() => import('src/pages/pack'));
+export const SendingPage = lazy(() => import('src/pages/sending'));
 
 // ----------------------------------------------------------------------
 
@@ -62,13 +63,14 @@ export function Router() {
         { path: 'user', element: <UserPage /> },
         { path: 'loads', element: <LoadsPage /> },
         { path: 'remains', element: <RemainsPage /> },
-        { path: 'request/zabor', element: <ZaborPage /> },
-        { path: 'request/new', element: <NewRequestFormPage /> },
-        { path: 'request/:id', element: <RequestItemPage /> },
+        { path: 'requests', element: <ZaborPage /> },
+        { path: 'create-request/new', element: <NewRequestFormPage /> },
+        { path: 'requests/:id', element: <RequestItemPage /> },
         { path: 'settings', element: <SettingsPage /> },
         { path: 'finance', element: <FinancePage /> },
-        { path: 'request', element: <RequestPage /> },
-        { path: 'request/pack', element: <PackPage /> },
+        { path: 'create-request', element: <RequestPage /> },
+        { path: 'create-request/pack', element: <PackPage /> },
+        { path: 'create-request/sending', element: <SendingPage /> },
       ],
     },
     {

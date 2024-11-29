@@ -59,7 +59,7 @@ export function NewZabor({ product }: { product: ProductItemProps }) {
   return (
     <Card
       component={RouterLink}
-      href="/request/1"
+      href="/requests/1"
       sx={{
         textDecoration: 'none',
         cursor: 'pointer',

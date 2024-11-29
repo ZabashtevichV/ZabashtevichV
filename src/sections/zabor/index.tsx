@@ -22,7 +22,7 @@ export function ZaborView() {
 
         <Link
           sx={{ borderRadius: 0, display: 'flex', alignItems: 'center' }}
-          href="/zabor"
+          href="/sending"
           component={RouterLink}
         >
           <Iconify icon="mingcute:add-line" />

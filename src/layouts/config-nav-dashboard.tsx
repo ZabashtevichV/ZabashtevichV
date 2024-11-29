@@ -10,7 +10,7 @@ const icon = (name: string) => (
 export const navData = [
   {
     title: 'Заявки',
-    path: '/',
+    path: '/requests',
     icon: icon('ic-tasks'),
     info: (
       <Label color="error" variant="inverted">
@@ -60,7 +60,7 @@ export const navData = [
   },
   {
     title: 'Создание заявок',
-    path: '/request',
+    path: '/create-request',
     icon: icon('ic-get'),
   },
 ];
