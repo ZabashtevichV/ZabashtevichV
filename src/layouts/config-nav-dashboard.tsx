@@ -1,3 +1,4 @@
+import { Iconify } from 'src/components/iconify';
 import { Label } from 'src/components/label';
 import { SvgColor } from 'src/components/svg-color';
 
@@ -62,5 +63,10 @@ export const navData = [
     title: 'Создание заявок',
     path: '/create-request',
     icon: icon('ic-get'),
+  },
+  {
+    title: 'Калькулятор',
+    path: '/calculator',
+    icon: icon('ic-calculator'),
   },
 ];
