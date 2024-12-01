@@ -1,27 +1,19 @@
-import dayjs from 'dayjs';
-import { DateTimePicker } from '@mui/x-date-pickers';
-import PhoneInput from 'react-phone-input-2';
+
+import { useState } from 'react';
 
 import {
   Box,
-  Button,
   Card,
-  Checkbox,
-  FormControl,
-  FormLabel,
-  Grid2,
-  InputLabel,
-  MenuItem,
-  Select,
   Step,
-  StepLabel,
+  Button,
   Stepper,
-  TextField,
+  StepLabel,
   Typography,
   useMediaQuery,
 } from '@mui/material';
-import { useState } from 'react';
+
 import { DashboardContent } from 'src/layouts/dashboard';
+
 import { Step1 } from './step1';
 import { Step2 } from './step2';
 import { Step3 } from './Step3';

@@ -1,30 +1,32 @@
 import { Add, Remove } from '@mui/icons-material';
 import {
   Box,
-  Button,
   Card,
-  Checkbox,
-  FormControl,
-  FormLabel,
   Grid2,
+  Button,
+  Select,
+  Checkbox,
+  MenuItem,
+  useTheme,
+  FormLabel,
+  TextField,
   IconButton,
   InputLabel,
-  MenuItem,
-  Select,
-  TextField,
   Typography,
-  useTheme,
+  FormControl,
 } from '@mui/material';
+
+import { DashboardContent } from 'src/layouts/dashboard';
+
 import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
-import { DashboardContent } from 'src/layouts/dashboard';
 
 export const CalculatorView = () => {
   const theme = useTheme();
 
   return (
-    <DashboardContent maxWidth={false}>
-      <Scrollbar>
+    <DashboardContent maxWidth={false} sx={{ overflow: 'unset' }}>
+      <Scrollbar sx={{ flexGrow: 0, paddingBottom: '32px' }}>
         <Grid2 container spacing={2} minWidth={1000}>
           <Grid2 size={{ xl: 8, lg: 8, md: 8, sm: 8, xs: 8 }}>
             <Typography variant="h3">Калькулятор</Typography>
@@ -80,7 +82,12 @@ export const CalculatorView = () => {
                   </FormLabel>
                 </Grid2>
 
-                <Grid2 size={{ xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }}>
+                <Grid2
+                  size={{ xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }}
+                  justifyContent="flex-end"
+                  alignItems="center"
+                  display="flex"
+                >
                   <IconButton title="Детальные цены" size="small" color="primary">
                     <Iconify icon="material-symbols:info" height={24} width={24} />
                   </IconButton>
@@ -93,7 +100,7 @@ export const CalculatorView = () => {
                 Приемка товара
               </Typography>
 
-              <Box display="flex" gap={1} alignItems="center">
+              <Box display="flex" gap={2} alignItems="center">
                 <TextField label="Количество товара" size="small" fullWidth />
 
                 <IconButton title="Детальные цены" size="small" color="primary">

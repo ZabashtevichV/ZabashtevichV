@@ -1,9 +1,9 @@
-import { Box, Button, Card, Grid2, Step, StepLabel, Stepper, Typography } from '@mui/material';
 import { useState } from 'react';
-import { Iconify } from 'src/components/iconify';
-import { ProductCard } from 'src/components/product-card';
+
+import { Box, Card, Step, Button, Stepper, StepLabel, Typography } from '@mui/material';
 
 import { DashboardContent } from 'src/layouts/dashboard';
+
 import { Step1 } from './step1';
 import { Step2 } from './step2';
 

@@ -1,24 +1,27 @@
+import 'react-phone-input-2/lib/material.css';
+
+import dayjs from 'dayjs';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import PhoneInput from 'react-phone-input-2';
+
 import { Add, Remove } from '@mui/icons-material';
+import { DateTimePicker } from '@mui/x-date-pickers';
 import {
   Box,
-  Button,
   Card,
+  Grid2,
+  Button,
   Checkbox,
   FormLabel,
-  Grid2,
   TextField,
   Typography,
 } from '@mui/material';
-import { DateTimePicker } from '@mui/x-date-pickers';
-import dayjs from 'dayjs';
-import { useState } from 'react';
-import PhoneInput from 'react-phone-input-2';
 
-import 'react-phone-input-2/lib/material.css';
-import { useDispatch } from 'react-redux';
+import { openModal } from 'src/store/modal/add-process';
+
 import { Iconify } from 'src/components/iconify';
 import { ProductCard } from 'src/components/product-card';
-import { openModal } from 'src/store/modal/add-process';
 
 export const Step1 = () => {
   const [isExtended, setIsExtended] = useState(false);

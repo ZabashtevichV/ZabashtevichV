@@ -1,4 +1,5 @@
 import { Card, Grid2, Typography } from '@mui/material';
+
 import { ProductCard } from 'src/components/product-card';
 
 export const Step2 = () => {

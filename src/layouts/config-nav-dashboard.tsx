@@ -1,4 +1,3 @@
-import { Iconify } from 'src/components/iconify';
 import { Label } from 'src/components/label';
 import { SvgColor } from 'src/components/svg-color';
 
@@ -10,9 +9,19 @@ const icon = (name: string) => (
 
 export const navData = [
   {
+    title: 'Задачи',
+    path: '/tasks',
+    icon: icon('ic-tasks'),
+    info: (
+      <Label color="success" variant="inverted">
+        +3
+      </Label>
+    ),
+  },
+  {
     title: 'Заявки',
     path: '/requests',
-    icon: icon('ic-tasks'),
+    icon: icon('ic-requests'),
     info: (
       <Label color="error" variant="inverted">
         +3

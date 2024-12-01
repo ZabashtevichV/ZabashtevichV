@@ -8,7 +8,6 @@ import ChatComponent from 'src/components/chat';
 import { ProductCard } from 'src/components/product-card';
 
 import { GallerySection } from './gallery-section';
-import { AdditionalTable } from './additional-table';
 import { AnalyticsOrderTimeline } from '../overview/analytics-order-timeline';
 
 export const ZaborItemView = () => {

@@ -1,4 +1,5 @@
-import { Button, Grid2 } from '@mui/material';
+import { Grid2, Button } from '@mui/material';
+
 import { Iconify } from 'src/components/iconify';
 import { ProductCard } from 'src/components/product-card';
 

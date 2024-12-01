@@ -1,4 +1,5 @@
 import { Grid2 } from '@mui/material';
+
 import { ProductCard } from 'src/components/product-card';
 
 export const Step2 = () => (

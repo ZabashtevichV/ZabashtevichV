@@ -1,36 +1,20 @@
 import './styles.css';
 import 'react-phone-input-2/lib/material.css';
 
-import dayjs from 'dayjs';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import PhoneInput from 'react-phone-input-2';
 
-import { DateTimePicker } from '@mui/x-date-pickers';
 import {
   Box,
   Card,
   Step,
-  Grid2,
   Button,
-  Select,
   Stepper,
-  Checkbox,
-  MenuItem,
-  FormLabel,
-  TextField,
   StepLabel,
   Typography,
-  InputLabel,
-  FormControl,
 } from '@mui/material';
 
 import { DashboardContent } from 'src/layouts/dashboard';
-import { Iconify } from 'src/components/iconify';
-import { ProductCard } from 'src/components/product-card';
-import { openModal } from 'src/store/modal/create-product-item';
 
-import { CargoTable } from './cargo-table';
 import { Step1 } from './step1';
 import { Step2 } from './step2';
 
