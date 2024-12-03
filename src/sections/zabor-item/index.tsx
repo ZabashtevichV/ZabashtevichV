@@ -198,11 +198,11 @@ export const ZaborItemView = () => {
 
       <Grid2 container mt={3} spacing={2}>
         <Grid2 size={{ xl: 6, lg: 12, md: 12, sm: 12, xs: 12 }}>
-          <ProductCard isPreview />
+          <ProductCard />
         </Grid2>
 
         <Grid2 size={{ xl: 6, lg: 12, md: 12, sm: 12, xs: 12 }}>
-          <ProductCard isPreview />
+          <ProductCard />
         </Grid2>
       </Grid2>
 

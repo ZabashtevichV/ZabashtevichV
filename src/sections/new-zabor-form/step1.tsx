@@ -17,25 +17,26 @@ import {
   InputLabel,
   Typography,
   FormControl,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableContainer,
+  TableBody,
+  IconButton,
 } from '@mui/material';
 
-import { openModal } from 'src/store/modal/create-product-item';
-
 import { Iconify } from 'src/components/iconify';
-import { ProductCard } from 'src/components/product-card';
+import { openModal } from 'src/store/modal/create-product-item';
+import { ProductTable } from 'src/components/product-table';
 
 import { CargoTable } from './cargo-table';
 
 export const Step1 = () => {
   const [isExtended, setIsExtended] = useState(false);
-  const dispatch = useDispatch();
 
   const onChange = () => {
     setIsExtended((prev) => !prev);
-  };
-
-  const onClick = () => {
-    dispatch(openModal());
   };
 
   return (
@@ -193,36 +194,9 @@ export const Step1 = () => {
         </Grid2>
       </Card>
 
-      <Card style={{ marginTop: '32px', padding: '24px' }}>
-        <Grid2 size={{ lg: 12, xs: 12 }}>
-          <Grid2 size={{ lg: 3, xs: 12 }} display="flex" gap={2}>
-            <Typography variant="h4" whiteSpace="nowrap">
-              Состав приемки
-            </Typography>
-
-            <Button
-              variant="contained"
-              color="inherit"
-              startIcon={<Iconify icon="mingcute:add-line" />}
-              onClick={onClick}
-            >
-              Добавить товар
-            </Button>
-          </Grid2>
-        </Grid2>
-      </Card>
-
       <Grid2 container mt={3} spacing={2}>
-        <Grid2 size={{ xl: 6, lg: 6, md: 12, xs: 12, sm: 12 }}>
-          <ProductCard />
-        </Grid2>
-
-        <Grid2 size={{ xl: 6, lg: 6, md: 12, xs: 12, sm: 12 }}>
-          <ProductCard />
-        </Grid2>
-
-        <Grid2 size={{ xl: 6, lg: 6, md: 12, xs: 12, sm: 12 }}>
-          <ProductCard />
+        <Grid2 size={{ xl: 12, lg: 12, md: 12, xs: 12, sm: 12 }}>
+          <ProductTable />
         </Grid2>
       </Grid2>
     </>

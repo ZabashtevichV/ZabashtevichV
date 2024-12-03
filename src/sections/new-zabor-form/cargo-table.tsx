@@ -1,7 +1,8 @@
 import { Add, Remove } from '@mui/icons-material';
 import { Box, Button, Select, MenuItem, TextField, InputLabel, FormControl } from '@mui/material';
+import { FC } from 'react';
 
-export const CargoTable = () => (
+export const CargoTable: FC<{ title?: string }> = ({ title = 'Добавить грузоместо' }) => (
   <Box display="flex" gap={1}>
     <Box display="flex" gap={0.5}>
       <Button
@@ -26,7 +27,7 @@ export const CargoTable = () => (
     </Box>
 
     <FormControl sx={{ maxWidth: '300px', width: '100%' }} size="small">
-      <InputLabel sx={{ bgcolor: 'white' }}>Тип грузоместа</InputLabel>
+      <InputLabel sx={{ bgcolor: 'white' }}>{title}</InputLabel>
       <Select variant="outlined">
         <MenuItem>Малый пакет</MenuItem>
         <MenuItem>Короб</MenuItem>

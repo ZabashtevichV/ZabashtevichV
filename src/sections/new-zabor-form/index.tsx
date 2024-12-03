@@ -3,15 +3,7 @@ import 'react-phone-input-2/lib/material.css';
 
 import { useState } from 'react';
 
-import {
-  Box,
-  Card,
-  Step,
-  Button,
-  Stepper,
-  StepLabel,
-  Typography,
-} from '@mui/material';
+import { Box, Card, Step, Button, Stepper, StepLabel, Typography } from '@mui/material';
 
 import { DashboardContent } from 'src/layouts/dashboard';
 
@@ -33,7 +25,7 @@ export const NewZaborFormView = () => {
         }}
       >
         <Stepper activeStep={step - 1} alternativeLabel>
-          {['Описание заявки', 'Дополнительные действия', 'Согласование'].map((label) => (
+          {['Описание заявки', 'Формирование комплектов', 'Согласование'].map((label) => (
             <Step key={label} sx={{ padding: 0 }}>
               <StepLabel>
                 <Typography
