@@ -5,7 +5,6 @@ import { Box, Card, Step, Button, Stepper, StepLabel, Typography } from '@mui/ma
 import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Step1 } from './step1';
-import { Step2 } from './step2';
 
 export const PackView = () => {
   const [step, setStep] = useState(1);
@@ -21,13 +20,14 @@ export const PackView = () => {
       <Card
         sx={{
           flexDirection: 'column',
+          marginBottom: '24px',
           marginTop: '24px',
           padding: '24px',
           display: 'flex',
         }}
       >
         <Stepper activeStep={step - 1} alternativeLabel>
-          {['Состав заявки', 'Дополнительные действия', 'Согласование'].map((label) => (
+          {['Состав заявки', 'Согласование'].map((label) => (
             <Step key={label} sx={{ padding: 0 }}>
               <StepLabel>
                 <Typography
@@ -47,7 +47,6 @@ export const PackView = () => {
       </Card>
 
       {step === 1 && <Step1 />}
-      {step === 2 && <Step2 />}
 
       <Box mt={2.5} gap={1} display="flex" justifyContent="flex-end">
         <Button color="inherit" variant="outlined" size="large">

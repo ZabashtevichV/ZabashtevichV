@@ -12,16 +12,19 @@ import {
   Card,
   Grid2,
   Button,
+  Select,
   Checkbox,
+  MenuItem,
   FormLabel,
   TextField,
   Typography,
+  InputLabel,
+  FormControl,
 } from '@mui/material';
 
 import { openModal } from 'src/store/modal/add-process';
 
-import { Iconify } from 'src/components/iconify';
-import { ProductCard } from 'src/components/product-card';
+import { ProductTable } from 'src/components/product-table';
 
 export const Step1 = () => {
   const [isExtended, setIsExtended] = useState(false);
@@ -38,7 +41,19 @@ export const Step1 = () => {
   return (
     <>
       <Card sx={{ padding: '24px', marginTop: '32px', display: 'flex', flexDirection: 'column' }}>
-        <DateTimePicker label="Время доставки" ampm={false} minDate={dayjs()} />
+        <Box display="flex" gap={2}>
+          <DateTimePicker sx={{ flex: 1 }} label="Время отгрузки" ampm={false} minDate={dayjs()} />
+
+          <FormControl sx={{ flex: 1 }}>
+            <InputLabel>Тип отгрузки</InputLabel>
+
+            <Select>
+              <MenuItem>Яндекс Маркет</MenuItem>
+              <MenuItem>Wildberries</MenuItem>
+              <MenuItem>Озон</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
 
         <FormLabel
           onChange={onChange}
@@ -71,7 +86,9 @@ export const Step1 = () => {
         }}
       >
         <Typography variant="h4">Адреса доставки</Typography>
-        <Typography variant="caption">* Соблюдайте последовательность адресов</Typography>
+        <Typography variant="caption">
+          * Соблюдайте последовательность при добавлении транзитных адресов
+        </Typography>
       </Card>
 
       <Card
@@ -83,7 +100,7 @@ export const Step1 = () => {
         <Box display="flex" gap={1}>
           <Box display="flex" gap={0.5}>
             <Button
-              title="Добавить грузоместо"
+              title="Добавить адрес"
               sx={{ padding: 0, minWidth: '40px' }}
               variant="contained"
               color="inherit"
@@ -93,7 +110,7 @@ export const Step1 = () => {
             </Button>
 
             <Button
-              title="Убрать грузоместо"
+              title="Убрать адрес"
               sx={{ padding: 0, minWidth: '40px' }}
               variant="contained"
               color="inherit"
@@ -107,36 +124,9 @@ export const Step1 = () => {
         </Box>
       </Card>
 
-      <Card style={{ marginTop: '32px', padding: '24px' }}>
-        <Grid2 size={{ lg: 12, xs: 12 }}>
-          <Grid2 size={{ lg: 3, xs: 12 }} display="flex" gap={2}>
-            <Typography variant="h4" whiteSpace="nowrap">
-              Состав приемки
-            </Typography>
-
-            <Button
-              variant="contained"
-              color="inherit"
-              startIcon={<Iconify icon="mingcute:add-line" />}
-              onClick={onClick}
-            >
-              Добавить товар
-            </Button>
-          </Grid2>
-        </Grid2>
-      </Card>
-
       <Grid2 container mt={3} spacing={2}>
-        <Grid2 size={{ xl: 6, lg: 6, md: 12, xs: 12, sm: 12 }}>
-          <ProductCard />
-        </Grid2>
-
-        <Grid2 size={{ xl: 6, lg: 6, md: 12, xs: 12, sm: 12 }}>
-          <ProductCard />
-        </Grid2>
-
-        <Grid2 size={{ xl: 6, lg: 6, md: 12, xs: 12, sm: 12 }}>
-          <ProductCard />
+        <Grid2 size={{ xl: 12, lg: 12, md: 12, xs: 12, sm: 12 }}>
+          <ProductTable />
         </Grid2>
       </Grid2>
     </>

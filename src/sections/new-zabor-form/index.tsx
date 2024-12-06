@@ -8,7 +8,6 @@ import { Box, Card, Step, Button, Stepper, StepLabel, Typography } from '@mui/ma
 import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Step1 } from './step1';
-import { Step2 } from './step2';
 
 export const NewZaborFormView = () => {
   const [step, setStep] = useState(1);
@@ -25,7 +24,7 @@ export const NewZaborFormView = () => {
         }}
       >
         <Stepper activeStep={step - 1} alternativeLabel>
-          {['Описание заявки', 'Формирование комплектов', 'Согласование'].map((label) => (
+          {['Описание заявки', 'Согласование'].map((label) => (
             <Step key={label} sx={{ padding: 0 }}>
               <StepLabel>
                 <Typography
@@ -45,7 +44,7 @@ export const NewZaborFormView = () => {
       </Card>
 
       {step === 1 && <Step1 />}
-      {step === 2 && <Step2 />}
+      {/* {step === 2 && <Step2 />} */}
 
       <Box display="flex" gap={1.5} justifyContent="flex-end">
         <Button

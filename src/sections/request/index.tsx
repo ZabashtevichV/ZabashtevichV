@@ -82,7 +82,7 @@ export const RequestView = () => {
 
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="h5" mb={1}>
-                  Заявка на поставку FBO
+                  Заявка на отгрузку
                 </Typography>
 
                 <Typography color="textSecondary" mb={2}>

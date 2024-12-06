@@ -1,36 +1,47 @@
+import type { FC } from 'react';
+
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { FC, useState } from 'react';
-import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
+
+import { KeyboardArrowUp, KeyboardArrowDown } from '@mui/icons-material';
+import {
+  Box,
+  Card,
+  Paper,
+  Table,
+  Button,
+  TableRow,
+  useTheme,
+  TableBody,
+  TableCell,
+  TableHead,
+  TextField,
+  IconButton,
+  Typography,
+  TableContainer,
+} from '@mui/material';
 
 import { openModal } from 'src/store/modal/create-product-item';
 
-import {
-  Box,
-  Button,
-  Card,
-  Collapse,
-  FormControl,
-  IconButton,
-  InputLabel,
-  MenuItem,
-  menuItemClasses,
-  MenuList,
-  Paper,
-  Popover,
-  Select,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TextField,
-  Typography,
-  useTheme,
-} from '@mui/material';
 import { Iconify } from '../iconify';
+import { TaskRow } from './task-row';
+import { TaskDetailsRow } from './task-details-row';
 
-export const ProductTable: FC<{ isPreview?: boolean }> = ({ isPreview = false }) => {
+export const ProductTable: FC<{
+  isTaskButtonVisible?: boolean;
+  isDetailsVisible?: boolean;
+  isButtonVisible?: boolean;
+  color?: 'light' | 'dark';
+  isPreview?: boolean;
+  title?: string;
+}> = ({
+  isTaskButtonVisible = false,
+  isDetailsVisible = false,
+  title = 'Состав приёмки',
+  isButtonVisible = true,
+  isPreview = false,
+  color = 'light',
+}) => {
   const [open, setOpen] = useState(false);
 
   const theme = useTheme();
@@ -42,19 +53,32 @@ export const ProductTable: FC<{ isPreview?: boolean }> = ({ isPreview = false })
 
   return (
     <Card
-      sx={{ padding: '24px 0px 0px 0px', borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
+      sx={{
+        backgroundColor: color === 'dark' ? theme.vars.palette.grey[900] : '',
+        padding: '24px 0px 0px 0px',
+        borderBottomRightRadius: 0,
+        borderBottomLeftRadius: 0,
+      }}
     >
       <Box display="flex" alignItems="center" sx={{ padding: '0px 24px 24px 24px' }} gap={2}>
-        <Typography variant="h4" whiteSpace="nowrap">
-          Состав приемки
+        <Typography
+          color={color === 'light' ? 'textPrimary' : 'white'}
+          whiteSpace="nowrap"
+          variant="h4"
+        >
+          {title}
         </Typography>
 
-        {!isPreview && (
+        {isButtonVisible && (
           <Button
             startIcon={<Iconify icon="mingcute:add-line" />}
+            color={color === 'dark' ? 'primary' : 'inherit'}
+            sx={{
+              color: color === 'dark' ? theme.vars.palette.grey[900] : '',
+              background: color === 'dark' ? 'white' : '',
+            }}
             variant="contained"
             onClick={onClick}
-            color="inherit"
           >
             Добавить товар
           </Button>
@@ -68,43 +92,27 @@ export const ProductTable: FC<{ isPreview?: boolean }> = ({ isPreview = false })
           borderBottomRightRadius: 0,
         }}
       >
-        <Table>
+        <Table sx={{ minWidth: '1150px' }}>
           <TableHead>
             <TableRow>
-              {!isPreview && <TableCell sx={{ background: theme.vars.palette.text.primary }} />}
-              <TableCell sx={{ background: theme.vars.palette.text.primary, color: 'white' }}>
-                Изображение
-              </TableCell>
-              <TableCell sx={{ background: theme.vars.palette.text.primary, color: 'white' }}>
-                Название
-              </TableCell>
-              <TableCell sx={{ background: theme.vars.palette.text.primary, color: 'white' }}>
-                Состав
-              </TableCell>
-              <TableCell sx={{ background: theme.vars.palette.text.primary, color: 'white' }}>
-                Красный
-              </TableCell>
-              <TableCell sx={{ background: theme.vars.palette.text.primary, color: 'white' }}>
-                ШК
-              </TableCell>
-              <TableCell sx={{ background: theme.vars.palette.text.primary, color: 'white' }}>
-                Артикулы МП
-              </TableCell>
-              <TableCell sx={{ background: theme.vars.palette.text.primary, color: 'white' }}>
-                Количество
-              </TableCell>
-              <TableCell sx={{ background: theme.vars.palette.text.primary }} />
+              {(isTaskButtonVisible || isDetailsVisible) && <TableCell />}
+
+              <TableCell sx={{ pl: '24px' }}>Изображение</TableCell>
+              <TableCell>Название</TableCell>
+              <TableCell>Тип</TableCell>
+              <TableCell>Количество</TableCell>
+              <TableCell>Состав</TableCell>
+              <TableCell>Красный</TableCell>
+              <TableCell>ШК</TableCell>
+              <TableCell>Артикулы МП</TableCell>
+              {isButtonVisible && <TableCell />}
             </TableRow>
           </TableHead>
 
           <TableBody>
             <TableRow>
-              {!isPreview && (
-                <TableCell
-                  sx={{ background: theme.vars.palette.background.neutral }}
-                  padding="none"
-                  width={52}
-                >
+              {(isTaskButtonVisible || isDetailsVisible) && (
+                <TableCell padding="none" width={52}>
                   <IconButton
                     sx={{
                       height: '60px !important',
@@ -121,7 +129,9 @@ export const ProductTable: FC<{ isPreview?: boolean }> = ({ isPreview = false })
               )}
 
               <TableCell
-                sx={{ background: theme.vars.palette.background.neutral, color: 'white' }}
+                sx={{
+                  pl: '24px',
+                }}
                 width={100}
                 size="small"
               >
@@ -158,164 +168,35 @@ export const ProductTable: FC<{ isPreview?: boolean }> = ({ isPreview = false })
                 </Box>
               </TableCell>
 
-              <TableCell
-                sx={{
-                  background: theme.vars.palette.background.neutral,
-                  color: theme.vars.palette.text.primary,
-                }}
-                size="small"
-              >
-                Фен
-              </TableCell>
-              <TableCell
-                sx={{
-                  background: theme.vars.palette.background.neutral,
-                  color: theme.vars.palette.text.primary,
-                }}
-                size="small"
-              >
-                Фен в коробке
-              </TableCell>
-              <TableCell
-                sx={{
-                  background: theme.vars.palette.background.neutral,
-                  color: theme.vars.palette.text.primary,
-                }}
-                size="small"
-              >
-                Красный
-              </TableCell>
-              <TableCell
-                sx={{
-                  background: theme.vars.palette.background.neutral,
-                  color: theme.vars.palette.text.primary,
-                }}
-              >
-                2342356234
-              </TableCell>
-              <TableCell
-                sx={{
-                  background: theme.vars.palette.background.neutral,
-                  color: theme.vars.palette.text.primary,
-                }}
-              >
-                2342356234
-              </TableCell>
-              <TableCell
-                sx={{
-                  background: theme.vars.palette.background.neutral,
-                  color: theme.vars.palette.text.primary,
-                }}
-                size="small"
-              >
+              <TableCell size="small">Фен</TableCell>
+              <TableCell size="small">Товар</TableCell>
+              <TableCell size="small">
                 {!isPreview && (
                   <TextField
                     InputProps={{ style: { background: 'white' } }}
-                    size="small"
                     label="Кол-во"
+                    size="small"
+                    fullWidth
                   />
                 )}
                 {isPreview && 123}
               </TableCell>
+              <TableCell size="small">Фен в коробке</TableCell>
+              <TableCell size="small">Красный</TableCell>
+              <TableCell>2342356234</TableCell>
+              <TableCell>2342356234</TableCell>
 
-              <TableCell
-                sx={{
-                  background: theme.vars.palette.background.neutral,
-                  color: theme.vars.palette.text.primary,
-                }}
-                padding="none"
-                size="small"
-                width={40}
-              >
-                <IconButton sx={{ marginRight: '8px' }} color="error" title="Убрать из списка">
-                  <Iconify icon="mdi:times" width={24} height={24} />
-                </IconButton>
-              </TableCell>
+              {isButtonVisible && (
+                <TableCell padding="none" size="small" width={40}>
+                  <IconButton sx={{ marginRight: '8px' }} color="error" title="Убрать из списка">
+                    <Iconify icon="mdi:times" width={24} height={24} />
+                  </IconButton>
+                </TableCell>
+              )}
             </TableRow>
 
-            <TableRow>
-              <TableCell colSpan={9} padding="none">
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                  <Box>
-                    <Table size="small">
-                      <TableBody>
-                        <TableRow>
-                          <TableCell padding="none" width={52}>
-                            <IconButton
-                              sx={{
-                                background: theme.vars.palette.primary.main,
-                                margin: '0 auto',
-                                borderRadius: 0,
-                                width: '52px',
-                                '&:hover': {
-                                  background: theme.vars.palette.primary.dark,
-                                },
-                              }}
-                              title="Добавить действие"
-                            >
-                              <Iconify
-                                icon="ic:baseline-plus"
-                                color="white"
-                                height={24}
-                                width={24}
-                              />
-                            </IconButton>
-                          </TableCell>
-                          <TableCell padding="none" width={180}>
-                            <FormControl size="small" fullWidth>
-                              <InputLabel sx={{ bgcolor: 'white' }} size="small">
-                                Тип задания
-                              </InputLabel>
-
-                              <Select
-                                sx={{
-                                  '.MuiOutlinedInput-notchedOutline': {
-                                    border: 'none',
-                                  },
-                                }}
-                                size="small"
-                              >
-                                <MenuItem>Своё тех. задание</MenuItem>
-                                <MenuItem>Маркировка</MenuItem>
-                              </Select>
-                            </FormControl>
-                          </TableCell>
-                          <TableCell padding="none">
-                            <TextField
-                              sx={{
-                                '.MuiOutlinedInput-notchedOutline': {
-                                  border: 'none',
-                                },
-                              }}
-                              slotProps={{ input: { style: { borderRadius: 0 } } }}
-                              label="Кол-во"
-                              size="small"
-                            />
-                          </TableCell>
-
-                          <TableCell>
-                            <Typography variant="caption">
-                              Здесь вы можете добавить действия к товару выше или описать своё тех.
-                              задание. Мы обработаем товар и отправим его на склад.
-                            </Typography>
-                          </TableCell>
-
-                          <TableCell padding="none" size="small" width={40}>
-                            <IconButton
-                              sx={{ marginRight: '8px' }}
-                              title="Убрать из списка"
-                              color="error"
-                            >
-                              <Iconify icon="ic:baseline-minus" width={24} height={24} />
-                            </IconButton>
-                          </TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
-                  </Box>
-                </Collapse>
-              </TableCell>
-            </TableRow>
+            {isTaskButtonVisible && <TaskRow open={open} />}
+            {isDetailsVisible && <TaskDetailsRow open={open} />}
           </TableBody>
         </Table>
       </TableContainer>

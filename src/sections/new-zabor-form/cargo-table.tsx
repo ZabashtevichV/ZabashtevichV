@@ -1,6 +1,7 @@
+import type { FC } from 'react';
+
 import { Add, Remove } from '@mui/icons-material';
 import { Box, Button, Select, MenuItem, TextField, InputLabel, FormControl } from '@mui/material';
-import { FC } from 'react';
 
 export const CargoTable: FC<{ title?: string }> = ({ title = 'Добавить грузоместо' }) => (
   <Box display="flex" gap={1}>

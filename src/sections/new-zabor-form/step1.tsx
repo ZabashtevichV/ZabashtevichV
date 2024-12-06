@@ -1,6 +1,5 @@
 import dayjs from 'dayjs';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import PhoneInput from 'react-phone-input-2';
 
 import { DateTimePicker } from '@mui/x-date-pickers';
@@ -8,7 +7,6 @@ import {
   Box,
   Card,
   Grid2,
-  Button,
   Select,
   Checkbox,
   MenuItem,
@@ -17,17 +15,8 @@ import {
   InputLabel,
   Typography,
   FormControl,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableContainer,
-  TableBody,
-  IconButton,
 } from '@mui/material';
 
-import { Iconify } from 'src/components/iconify';
-import { openModal } from 'src/store/modal/create-product-item';
 import { ProductTable } from 'src/components/product-table';
 
 import { CargoTable } from './cargo-table';
@@ -196,7 +185,7 @@ export const Step1 = () => {
 
       <Grid2 container mt={3} spacing={2}>
         <Grid2 size={{ xl: 12, lg: 12, md: 12, xs: 12, sm: 12 }}>
-          <ProductTable />
+          <ProductTable isTaskButtonVisible />
         </Grid2>
       </Grid2>
     </>

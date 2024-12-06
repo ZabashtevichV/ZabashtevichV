@@ -3,19 +3,22 @@ import {
   Card,
   Grid2,
   Table,
+  TableRow,
+  useTheme,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
-  TableRow,
   Typography,
-  useTheme,
+  TableContainer,
 } from '@mui/material';
-import { Iconify } from 'src/components/iconify';
-import { Label } from 'src/components/label';
-import { Scrollbar } from 'src/components/scrollbar';
-import { DashboardContent } from 'src/layouts/dashboard';
+
 import { RouterLink } from 'src/routes/components';
+
+import { DashboardContent } from 'src/layouts/dashboard';
+
+import { Label } from 'src/components/label';
+import { Iconify } from 'src/components/iconify';
+import { Scrollbar } from 'src/components/scrollbar';
 
 export const TasksView = () => {
   const theme = useTheme();

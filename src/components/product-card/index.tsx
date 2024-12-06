@@ -1,6 +1,8 @@
-import { Box, Card, Tooltip, useTheme, TextField, IconButton, Typography } from '@mui/material';
+import type { FC } from 'react';
+
+import { Box, Card, TextField, IconButton, Typography } from '@mui/material';
+
 import { CargoTable } from 'src/sections/new-zabor-form/cargo-table';
-import { FC } from 'react';
 
 // import { useDispatch } from 'react-redux';
 

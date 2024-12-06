@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 import {
@@ -16,7 +15,6 @@ import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Step1 } from './step1';
 import { Step2 } from './step2';
-import { Step3 } from './Step3';
 
 export const SendingView = () => {
   const matches = useMediaQuery('(max-width: 800px)');
@@ -40,12 +38,7 @@ export const SendingView = () => {
           alternativeLabel={!matches}
           activeStep={step - 1}
         >
-          {[
-            'Описание заявки',
-            'Дополнительные действия',
-            'Заполнение направлений',
-            'Согласование',
-          ].map((label) => (
+          {['Описание заявки', 'Формирование отправлений', 'Согласование'].map((label) => (
             <Step key={label} sx={{ padding: 0 }}>
               <StepLabel>
                 <Typography
@@ -66,7 +59,6 @@ export const SendingView = () => {
 
       {step === 1 && <Step1 />}
       {step === 2 && <Step2 />}
-      {step === 3 && <Step3 />}
 
       <Box display="flex" gap={1.5} justifyContent="flex-end">
         <Button
@@ -85,7 +77,7 @@ export const SendingView = () => {
           color="inherit"
           size="large"
         >
-          Следующий шаг
+          {step === 2 ? 'Согласовать' : 'Следующий шаг'}
         </Button>
       </Box>
     </DashboardContent>

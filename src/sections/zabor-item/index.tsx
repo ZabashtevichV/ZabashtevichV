@@ -5,7 +5,7 @@ import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Label } from 'src/components/label';
 import ChatComponent from 'src/components/chat';
-import { ProductCard } from 'src/components/product-card';
+import { ProductTable } from 'src/components/product-table';
 
 import { GallerySection } from './gallery-section';
 import { AnalyticsOrderTimeline } from '../overview/analytics-order-timeline';
@@ -21,7 +21,7 @@ export const ZaborItemView = () => {
         </Typography>
       </Box>
 
-      <Grid2 container spacing={1.5}>
+      <Grid2 container spacing={1.5} mb={3}>
         <Grid2 size={{ lg: 5, md: 12 }}>
           <GallerySection />
         </Grid2>
@@ -103,7 +103,7 @@ export const ZaborItemView = () => {
               </Box>
             </Box>
 
-            <Box mt={3.5}>
+            <Box>
               <Typography variant="h5" textAlign="right" mt={2.5} mb={2.5} fontStyle="oblique">
                 Описание
               </Typography>
@@ -190,28 +190,12 @@ export const ZaborItemView = () => {
         </Grid2>
       </Grid2>
 
-      <Card sx={{ padding: '12px', width: '100%', marginTop: '24px' }}>
-        <Typography variant="h4" textAlign="center">
-          Товары в составе заявки
-        </Typography>
-      </Card>
-
-      <Grid2 container mt={3} spacing={2}>
-        <Grid2 size={{ xl: 6, lg: 12, md: 12, sm: 12, xs: 12 }}>
-          <ProductCard />
-        </Grid2>
-
-        <Grid2 size={{ xl: 6, lg: 12, md: 12, sm: 12, xs: 12 }}>
-          <ProductCard />
-        </Grid2>
-      </Grid2>
-
-      <Grid2 container mt={3} spacing={2}>
-        <Grid2 size={{ lg: 6, md: 6, sm: 12, xs: 12 }}>
+      <Grid2 container spacing={2}>
+        <Grid2 size={{ lg: 4, md: 4, sm: 12, xs: 12 }}>
           <AnalyticsOrderTimeline title="" list={_timeline} />
         </Grid2>
 
-        <Grid2 size={{ lg: 6, md: 6, sm: 12, xs: 12 }}>
+        <Grid2 size={{ lg: 8, md: 8, sm: 12, xs: 12 }}>
           <Card sx={{ padding: '24px' }}>
             <Box>
               <Typography variant="h3" mb={3}>
@@ -281,6 +265,10 @@ export const ZaborItemView = () => {
               </Box>
             </Box>
           </Card>
+        </Grid2>
+
+        <Grid2 size={{ lg: 12, md: 12, sm: 12, xs: 12 }}>
+          <ProductTable isButtonVisible={false} title="Состав заявки" isDetailsVisible isPreview />
         </Grid2>
 
         <Grid2 size={{ lg: 12, md: 12, sm: 12, xs: 12 }} mt={1.5}>
