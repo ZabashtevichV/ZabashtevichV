@@ -29,7 +29,7 @@ export default function CreateProductItemModal() {
             <Typography variant="h3">Создание товара</Typography>
 
             <Grid2 container mt={4.5} spacing={4.5}>
-              <Grid2 size={{ lg: 4, md: 4, sm: 12, xs: 12 }}>
+              <Grid2 size={{ lg: 4, md: 4, sm: 12, xs: 12 }} minHeight={300}>
                 <ImageUploader />
               </Grid2>
               <Grid2 size={{ lg: 8, md: 8, sm: 12, xs: 12 }}>

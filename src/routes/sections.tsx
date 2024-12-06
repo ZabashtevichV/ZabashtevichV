@@ -30,6 +30,7 @@ export const PackPage = lazy(() => import('src/pages/pack'));
 export const SendingPage = lazy(() => import('src/pages/sending'));
 export const CalculatorPage = lazy(() => import('src/pages/calculator'));
 export const TasksPage = lazy(() => import('src/pages/tasks'));
+export const TemplatesPage = lazy(() => import('src/pages/templates'));
 
 // ----------------------------------------------------------------------
 
@@ -75,6 +76,7 @@ export function Router() {
         { path: 'create-request/sending', element: <SendingPage /> },
         { path: 'calculator', element: <CalculatorPage /> },
         { path: 'tasks', element: <TasksPage /> },
+        { path: 'templates', element: <TemplatesPage /> },
       ],
     },
     {

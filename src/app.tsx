@@ -9,6 +9,8 @@ import { Router } from 'src/routes/sections';
 import { useScrollToTop } from 'src/hooks/use-scroll-to-top';
 
 import { ThemeProvider } from 'src/theme/theme-provider';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from './libs';
 
 // ----------------------------------------------------------------------
 
@@ -17,12 +19,14 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <LocalizationProvider
-        localeText={ruRU.components.MuiLocalizationProvider.defaultProps.localeText}
-        dateAdapter={AdapterDayjs}
-      >
-        <Router />
-      </LocalizationProvider>
+      <QueryClientProvider client={queryClient}>
+        <LocalizationProvider
+          localeText={ruRU.components.MuiLocalizationProvider.defaultProps.localeText}
+          dateAdapter={AdapterDayjs}
+        >
+          <Router />
+        </LocalizationProvider>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }

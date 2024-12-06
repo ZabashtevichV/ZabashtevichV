@@ -1,3 +1,4 @@
+import { Iconify } from 'src/components/iconify';
 import { Label } from 'src/components/label';
 import { SvgColor } from 'src/components/svg-color';
 
@@ -59,15 +60,11 @@ export const navData = [
     ),
   },
   {
-    title: 'Авторизация',
-    path: '/sign-in',
-    icon: icon('ic-lock'),
+    icon: <Iconify width={24} height={24} icon="tabler:template" />,
+    title: 'Шаблоны',
+    path: '/templates',
   },
-  {
-    title: 'Не найдено',
-    path: '/404',
-    icon: icon('ic-disabled'),
-  },
+
   {
     title: 'Создание заявок',
     path: '/create-request',
