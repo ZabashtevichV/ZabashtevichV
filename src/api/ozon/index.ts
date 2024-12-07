@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { ProductList } from './types';
+import { ProductItem, ProductList } from './types';
 
 export const getProductList = () =>
   axios
     .post<{ result: { items: ProductList[] } }>(
-      `${import.meta.env.VITE_OZON_API}/v2/product/list`,
+      `https://api-seller.ozon.ru/v2/product/list`,
       {},
       {
         headers: {
@@ -15,11 +15,9 @@ export const getProductList = () =>
     )
     .then((res) => res.data.result.items);
 
-export const getProductListInfo = (offerIds?: string[], productIds?: number[]) => {
-  console.log(offerIds);
-
-  return axios.post<{ result: ProductList[] }>(
-    `${import.meta.env.VITE_OZON_API}/v2/product/info/list`,
+export const getProductListInfo = (offerIds?: string[], productIds?: number[]) =>
+  axios.post<{ result: { items: ProductItem[] } }>(
+    `https://api-seller.ozon.ru/v2/product/info/list`,
     { offer_id: offerIds, product_id: productIds },
     {
       headers: {
@@ -28,4 +26,3 @@ export const getProductListInfo = (offerIds?: string[], productIds?: number[]) =
       },
     }
   );
-};

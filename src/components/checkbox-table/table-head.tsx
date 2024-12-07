@@ -9,7 +9,7 @@ import { visuallyHidden } from './utils';
 
 // ----------------------------------------------------------------------
 
-type UserTableHeadProps = {
+type CheckboxTableHeadProps = {
   orderBy: string;
   rowCount: number;
   numSelected: number;
@@ -19,7 +19,7 @@ type UserTableHeadProps = {
   onSelectAllRows: (checked: boolean) => void;
 };
 
-export function UserTableHead({
+export function CheckboxTableHead({
   order,
   onSort,
   orderBy,
@@ -27,9 +27,9 @@ export function UserTableHead({
   headLabel,
   numSelected,
   onSelectAllRows,
-}: UserTableHeadProps) {
+}: CheckboxTableHeadProps) {
   return (
-    <TableHead>
+    <TableHead sx={{ position: 'sticky', top: 0, zIndex: 5 }}>
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox

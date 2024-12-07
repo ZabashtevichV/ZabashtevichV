@@ -21,26 +21,39 @@ export const _myAccount = {
 
 // ----------------------------------------------------------------------
 
-export const _users = [...Array(24)].map((_, index) => ({
+export const _users = new Array(24).fill(1).map((_, index) => ({
   id: _id(index),
   name: _fullName(index),
-  company: _company(index),
-  isVerified: _boolean(index),
-  avatarUrl: `/assets/images/avatar/avatar-${index + 1}.webp`,
-  status: index % 4 ? 'Активный' : 'Неактивный',
-  role:
-    [
-      'Leader',
-      'Hr Manager',
-      'UI Designer',
-      'UX Designer',
-      'UI/UX Designer',
-      'Project Manager',
-      'Backend Developer',
-      'Full Stack Designer',
-      'Front End Developer',
-      'Full Stack Developer',
-    ][index] || 'UI Designer',
+  items: [
+    {
+      value: _fullName(index),
+      type: 'image',
+      url: `/assets/images/avatar/avatar-${index + 1}.webp`,
+    },
+    {
+      value: _id(index),
+      type: 'cell',
+    },
+    { type: 'cell', value: _company(index) },
+    { type: 'icon', value: _boolean(index) },
+    { type: 'cell', value: index % 4 ? 'Активный' : 'Неактивный' },
+    {
+      type: 'cell',
+      value:
+        [
+          'Leader',
+          'Hr Manager',
+          'UI Designer',
+          'UX Designer',
+          'UI/UX Designer',
+          'Project Manager',
+          'Backend Developer',
+          'Full Stack Designer',
+          'Front End Developer',
+          'Full Stack Developer',
+        ][index] || 'UI Designer',
+    },
+  ],
 }));
 
 // ----------------------------------------------------------------------

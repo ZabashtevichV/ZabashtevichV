@@ -6,58 +6,73 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { Iconify } from 'src/components/iconify';
+import { Button } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-type UserTableToolbarProps = {
+type TableToolbarHeaderProps = {
+  onFilterName: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  onReset: () => void;
   numSelected: number;
   filterName: string;
-  onFilterName: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function UserTableToolbar({ numSelected, filterName, onFilterName }: UserTableToolbarProps) {
+export function TableToolbarHeader({
+  placeholder = 'Искать пользователя...',
+  onFilterName,
+  numSelected,
+  filterName,
+  onReset,
+}: TableToolbarHeaderProps) {
   return (
     <Toolbar
       sx={{
-        height: 96,
+        height: 72,
         display: 'flex',
-        justifyContent: 'space-between',
-        p: (theme) => theme.spacing(0, 1, 0, 3),
+        padding: '0px 24px !important',
         ...(numSelected > 0 && {
           color: 'primary.main',
           bgcolor: 'primary.lighter',
         }),
       }}
     >
-      {numSelected > 0 ? (
-        <Typography component="div" variant="subtitle1">
-          {numSelected} selected
-        </Typography>
-      ) : (
+      {!!numSelected && (
+        <>
+          <Typography component="div" variant="subtitle1">
+            {numSelected} выбрано
+          </Typography>
+
+          <Button
+            startIcon={<Iconify icon="mingcute:add-line" />}
+            variant="contained"
+            color="inherit"
+            sx={{ ml: 2 }}
+          >
+            Сформировать шаблон
+          </Button>
+        </>
+      )}
+      {!numSelected && (
         <OutlinedInput
           fullWidth
           value={filterName}
           onChange={onFilterName}
-          placeholder="Search user..."
+          placeholder={placeholder}
           startAdornment={
             <InputAdornment position="start">
               <Iconify width={20} icon="eva:search-fill" sx={{ color: 'text.disabled' }} />
             </InputAdornment>
           }
           sx={{ maxWidth: 320 }}
+          size="small"
         />
       )}
 
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
+      {!!numSelected && (
+        <Tooltip title="Очистить список" sx={{ mr: 2, ml: 'auto' }}>
+          <IconButton onClick={onReset}>
             <Iconify icon="solar:trash-bin-trash-bold" />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <Iconify icon="ic:round-filter-list" />
           </IconButton>
         </Tooltip>
       )}

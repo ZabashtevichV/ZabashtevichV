@@ -11,18 +11,21 @@ import TablePagination from '@mui/material/TablePagination';
 
 import { _users } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
+import {
+  applyFilter,
+  ApplyFilterProps,
+  CheckboxTableHead,
+  CheckboxTableRow,
+  CheckboxTableRowType,
+  emptyRows,
+  TableEmptyRows,
+  TableNoData,
+  useTable,
+} from 'src/components/checkbox-table';
 
 import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
-
-import { TableNoData } from '../table-no-data';
-import { UserTableRow } from '../user-table-row';
-import { emptyRows, applyFilter } from '../utils';
-import { UserTableHead } from '../user-table-head';
-import { TableEmptyRows } from '../table-empty-rows';
-import { UserTableToolbar } from '../user-table-toolbar';
-
-import type { UserProps } from '../user-table-row';
+import { TableToolbarHeader } from 'src/components/checkbox-table/toolbar-header';
 
 // ----------------------------------------------------------------------
 
@@ -31,10 +34,17 @@ export function UserView() {
 
   const [filterName, setFilterName] = useState('');
 
-  const dataFiltered: UserProps[] = applyFilter({
-    inputData: _users,
+  const dataFiltered = applyFilter({
+    inputData: _users as unknown as ApplyFilterProps['inputData'],
     filterName,
   });
+
+  const onReset = () => {
+    table.onSelectAllRows(
+      false,
+      _users.map(({ id }) => id)
+    );
+  };
 
   const notFound = !dataFiltered.length && !!filterName;
 
@@ -49,24 +59,25 @@ export function UserView() {
           color="inherit"
           startIcon={<Iconify icon="mingcute:add-line" />}
         >
-          New user
+          Новый пользователь
         </Button>
       </Box>
 
       <Card>
-        <UserTableToolbar
+        <TableToolbarHeader
           numSelected={table.selected.length}
           filterName={filterName}
           onFilterName={(event: React.ChangeEvent<HTMLInputElement>) => {
             setFilterName(event.target.value);
             table.onResetPage();
           }}
+          onReset={onReset}
         />
 
         <Scrollbar>
           <TableContainer sx={{ overflow: 'unset' }}>
             <Table sx={{ minWidth: 800 }}>
-              <UserTableHead
+              <CheckboxTableHead
                 order={table.order}
                 orderBy={table.orderBy}
                 rowCount={_users.length}
@@ -94,9 +105,9 @@ export function UserView() {
                     table.page * table.rowsPerPage + table.rowsPerPage
                   )
                   .map((row) => (
-                    <UserTableRow
+                    <CheckboxTableRow
                       key={row.id}
-                      row={row}
+                      cells={row.items}
                       selected={table.selected.includes(row.id)}
                       onSelectRow={() => table.onSelectRow(row.id)}
                     />
@@ -125,72 +136,4 @@ export function UserView() {
       </Card>
     </DashboardContent>
   );
-}
-
-// ----------------------------------------------------------------------
-
-export function useTable() {
-  const [page, setPage] = useState(0);
-  const [orderBy, setOrderBy] = useState('name');
-  const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [selected, setSelected] = useState<string[]>([]);
-  const [order, setOrder] = useState<'asc' | 'desc'>('asc');
-
-  const onSort = useCallback(
-    (id: string) => {
-      const isAsc = orderBy === id && order === 'asc';
-      setOrder(isAsc ? 'desc' : 'asc');
-      setOrderBy(id);
-    },
-    [order, orderBy]
-  );
-
-  const onSelectAllRows = useCallback((checked: boolean, newSelecteds: string[]) => {
-    if (checked) {
-      setSelected(newSelecteds);
-      return;
-    }
-    setSelected([]);
-  }, []);
-
-  const onSelectRow = useCallback(
-    (inputValue: string) => {
-      const newSelected = selected.includes(inputValue)
-        ? selected.filter((value) => value !== inputValue)
-        : [...selected, inputValue];
-
-      setSelected(newSelected);
-    },
-    [selected]
-  );
-
-  const onResetPage = useCallback(() => {
-    setPage(0);
-  }, []);
-
-  const onChangePage = useCallback((event: unknown, newPage: number) => {
-    setPage(newPage);
-  }, []);
-
-  const onChangeRowsPerPage = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setRowsPerPage(parseInt(event.target.value, 10));
-      onResetPage();
-    },
-    [onResetPage]
-  );
-
-  return {
-    page,
-    order,
-    onSort,
-    orderBy,
-    selected,
-    rowsPerPage,
-    onSelectRow,
-    onResetPage,
-    onChangePage,
-    onSelectAllRows,
-    onChangeRowsPerPage,
-  };
 }

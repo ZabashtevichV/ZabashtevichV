@@ -16,27 +16,21 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
-import { getProductList, getProductListInfo } from 'src/api';
 import { Iconify } from 'src/components/iconify';
 import { DashboardContent } from 'src/layouts/dashboard';
-import { openModal } from 'src/store/modal/create-product-item';
+import { openModal } from 'src/store/modal/add-product-item';
+import { openModal as openHandModal } from 'src/store/modal/create-product-item';
 
 export const TemplatesView = () => {
-  const { data } = useQuery('templates', getProductList);
-  const offerIds = data?.map(({ offer_id }) => offer_id);
-
-  const { data: data2 } = useQuery({
-    queryFn: () => getProductListInfo(offerIds),
-    queryKey: ['info', offerIds],
-    enabled: !!data,
-  });
-
-  console.log(data2);
   const dispatch = useDispatch();
-  const onClick = () => {
+
+  const onLoadClick = () => {
     dispatch(openModal());
+  };
+
+  const onHandClick = () => {
+    dispatch(openHandModal());
   };
 
   const theme = useTheme();
@@ -44,15 +38,33 @@ export const TemplatesView = () => {
   return (
     <DashboardContent maxWidth="xl">
       <Card>
-        <Box sx={{ padding: '24px 24px 12px 24px' }} display="flex" gap={2}>
+        <Box
+          sx={{
+            padding: '24px 24px 12px 24px',
+            '@media (max-width: 700px)': {
+              flexDirection: 'column',
+            },
+          }}
+          display="flex"
+          gap={2}
+        >
           <Typography variant="h4">Список шаблонов</Typography>
           <Button
             startIcon={<Iconify icon="mingcute:add-line" />}
             variant="contained"
-            onClick={onClick}
+            onClick={onLoadClick}
             color="inherit"
           >
-            Добавить шаблон
+            Загрузить с МП
+          </Button>
+
+          <Button
+            startIcon={<Iconify icon="mingcute:add-line" />}
+            onClick={onHandClick}
+            variant="contained"
+            color="inherit"
+          >
+            Добавить в ручную
           </Button>
         </Box>
 
@@ -70,6 +82,9 @@ export const TemplatesView = () => {
                 <TableCell>Тип</TableCell>
                 <TableCell>Состав</TableCell>
                 <TableCell>Цвет</TableCell>
+                <TableCell>Штрихкод</TableCell>
+                <TableCell>Артикулы</TableCell>
+
                 <TableCell />
               </TableRow>
             </TableHead>
@@ -114,6 +129,9 @@ export const TemplatesView = () => {
                 <TableCell>Товар</TableCell>
                 <TableCell>Фен в коробке</TableCell>
                 <TableCell>Красный</TableCell>
+                <TableCell>234234</TableCell>
+
+                <TableCell>stylerBag</TableCell>
               </TableRow>
             </TableBody>
           </Table>

@@ -5,10 +5,12 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import AddProcessReducer from './modal/add-process';
 import CreateProductItemReducer from './modal/create-product-item';
+import AddProductItemReducer from './modal/add-product-item';
 
 const store = configureStore({
   reducer: combineReducers({
     createProductItem: CreateProductItemReducer,
+    addProductItem: AddProductItemReducer,
     addProcess: AddProcessReducer,
   }),
 });
