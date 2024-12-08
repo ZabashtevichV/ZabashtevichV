@@ -26,6 +26,8 @@ import { openModal } from 'src/store/modal/create-product-item';
 import { Iconify } from '../iconify';
 import { TaskRow } from './task-row';
 import { TaskDetailsRow } from './task-details-row';
+import { RowCollapseWrapper } from './row-collapse-wrapper';
+import { WorkerRow } from '../worker-row';
 
 export const ProductTable: FC<{
   isTaskButtonVisible?: boolean;
@@ -196,7 +198,12 @@ export const ProductTable: FC<{
             </TableRow>
 
             {isTaskButtonVisible && <TaskRow open={open} />}
-            {isDetailsVisible && <TaskDetailsRow open={open} />}
+            {isDetailsVisible && (
+              <RowCollapseWrapper open={open}>
+                <TaskDetailsRow />
+                <WorkerRow />
+              </RowCollapseWrapper>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

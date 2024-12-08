@@ -1,4 +1,5 @@
 import { Box, Card, Grid2, useTheme, Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
 
 import { _timeline } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
@@ -6,6 +7,7 @@ import { DashboardContent } from 'src/layouts/dashboard';
 import { Label } from 'src/components/label';
 import ChatComponent from 'src/components/chat';
 import { ProductTable } from 'src/components/product-table';
+import { TaskTable } from 'src/components/task-table';
 
 import { GallerySection } from './gallery-section';
 import { AnalyticsOrderTimeline } from '../overview/analytics-order-timeline';
@@ -15,11 +17,11 @@ export const ZaborItemView = () => {
 
   return (
     <DashboardContent>
-      <Box display="flex" alignItems="center" mb={5}>
+      <Card sx={{ padding: '24px', mb: 5 }}>
         <Typography variant="h3" flexGrow={1}>
           Оформление заявки
         </Typography>
-      </Box>
+      </Card>
 
       <Grid2 container spacing={1.5} mb={3}>
         <Grid2 size={{ lg: 5, md: 12 }}>
@@ -269,6 +271,10 @@ export const ZaborItemView = () => {
 
         <Grid2 size={{ lg: 12, md: 12, sm: 12, xs: 12 }}>
           <ProductTable isButtonVisible={false} title="Состав заявки" isDetailsVisible isPreview />
+        </Grid2>
+
+        <Grid2 size={{ lg: 12, md: 12, sm: 12, xs: 12 }}>
+          <TaskTable />
         </Grid2>
 
         <Grid2 size={{ lg: 12, md: 12, sm: 12, xs: 12 }} mt={1.5}>

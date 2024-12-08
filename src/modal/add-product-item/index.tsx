@@ -8,7 +8,6 @@ import {
   LinearProgress,
   linearProgressClasses,
   Modal,
-  Pagination,
   Tab,
   Table,
   TableBody,

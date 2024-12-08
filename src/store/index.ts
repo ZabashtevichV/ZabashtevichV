@@ -6,12 +6,14 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import AddProcessReducer from './modal/add-process';
 import CreateProductItemReducer from './modal/create-product-item';
 import AddProductItemReducer from './modal/add-product-item';
+import TaskUsersReducer from './modal/task-users';
 
 const store = configureStore({
   reducer: combineReducers({
     createProductItem: CreateProductItemReducer,
     addProductItem: AddProductItemReducer,
     addProcess: AddProcessReducer,
+    taskUsers: TaskUsersReducer,
   }),
 });
 
